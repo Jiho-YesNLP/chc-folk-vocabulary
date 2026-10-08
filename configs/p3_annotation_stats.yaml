@@ -1,0 +1,15 @@
+# Stage 3 — coverage (RQ1) and inter-annotator agreement from the random annotation set.
+#
+#   uv run python scripts/p3_annotation_stats.py configs/p3_annotation_stats.yaml
+
+judgments_dir: data/processed/annotation/track_a/random/judgments   # {uid}/{rater}.jsonl
+inventory_path: data/raw/chc_taxonomy.json   # + sibling chc_project_annotations.json
+out_dir: results/annotation_stats
+
+# Coverage = mean over these raters of each ability's target-descriptor prevalence (and rates).
+coverage_raters: [opus-5.5-in-conversation@v2, llm-gpt-6-astra@v2]
+tier_high: 0.10                # high >= 10%, sparse > 0, none = 0
+
+# Agreement pair (same v2 instrument, different providers) and the rejected third rater.
+agreement_raters: [opus-5.5-in-conversation@v2, llm-gpt-6-astra@v2]
+# third_rater: llm-gpt-4o@v2   # 84-ability run only; not re-run on the 71-ability inventory

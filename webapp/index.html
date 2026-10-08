@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHC ability-descriptor fingerprint clusters</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+  :root{--bg:#fff;--ink:#1c1c1c;--muted:#888;--line:#e8e8e8;--accent:#3057d5}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{font:14px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--bg)}
+  #app{display:flex;height:100vh}
+
+  /* ---- left sidebar ---- */
+  #side{width:248px;flex:none;border-right:1px solid var(--line);padding:14px;overflow:auto}
+  #side h1{font-size:15px;margin:0 0 2px}
+  #side .sub{color:var(--muted);font-size:11.5px;margin:0 0 12px}
+  .legend{display:flex;flex-direction:column;gap:2px}
+  .leg{display:flex;align-items:center;gap:9px;padding:5px 7px;border-radius:7px;cursor:pointer;user-select:none}
+  .leg:hover{background:#f4f4f6}
+  .leg.active{background:#eef1fd;font-weight:700}
+  .leg .sw{width:13px;height:13px;border-radius:3px;flex:none;border:1px solid rgba(0,0,0,.18)}
+  .leg .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .leg .nm small{color:var(--muted);font-weight:400}
+  .leg .cnt{color:var(--muted);font-size:11.5px}
+  #clear{margin-top:12px;width:100%;padding:7px;border:1px solid var(--line);background:#fafafa;border-radius:7px;cursor:pointer;font:inherit}
+  #clear:hover{background:#f0f0f0}
+  .foot{margin-top:14px;color:var(--muted);font-size:11px;line-height:1.5}
+
+  /* ---- main / svg ---- */
+  #main{flex:1;position:relative;overflow:hidden;background:#fff}
+  svg{width:100%;height:100%;cursor:grab;display:block}
+  svg.grabbing{cursor:grabbing}
+  .pt{stroke:#fff;stroke-width:.4px;cursor:pointer}
+  .ell{fill-opacity:.10;stroke-width:1.3px;pointer-events:visiblePainted;cursor:pointer}
+  .nl{font:700 9px system-ui;fill:#222;paint-order:stroke;stroke:#fff;stroke-width:2.5px;cursor:pointer;opacity:0}
+  .bl{font:800 14px system-ui;paint-order:stroke;stroke:#fff;stroke-width:3.5px;pointer-events:none}
+  /* selection mode: dim everything not 'on' */
+  svg.sel .pt{opacity:.06} svg.sel .pt.on{opacity:.95}
+  svg.sel .ell{fill-opacity:.02;stroke-opacity:.12} svg.sel .ell.on{fill-opacity:.16;stroke-opacity:1;stroke-width:2px}
+  svg.sel .bl{opacity:.18} svg.sel .bl.on{opacity:1}
+  .nl.on{opacity:1}
+  .pt.pick{stroke:#111;stroke-width:1.4px}
+
+  /* ---- tooltip ---- */
+  #tip{position:absolute;pointer-events:none;background:#222;color:#fff;padding:4px 8px;border-radius:5px;
+       font-size:12px;opacity:0;transition:opacity .08s;white-space:nowrap;max-width:340px;z-index:30}
+  #hint{position:absolute;left:12px;bottom:10px;color:var(--muted);font-size:11px;background:rgba(255,255,255,.7);padding:2px 6px;border-radius:4px}
+
+  /* ---- floating info panel ---- */
+  #panel{position:absolute;top:14px;right:14px;width:360px;max-height:calc(100vh - 28px);
+         overflow:auto;background:#fff;border:1px solid #ddd;border-radius:10px;
+         box-shadow:0 6px 28px rgba(0,0,0,.16);padding:0;display:none;z-index:20}
+  #panel.show{display:block}
+  .ph{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);
+      padding:12px 14px;display:flex;align-items:flex-start;gap:10px}
+  .ph .chip{width:14px;height:14px;border-radius:4px;flex:none;margin-top:3px;border:1px solid rgba(0,0,0,.15)}
+  .ph .htxt{flex:1;min-width:0}
+  .ph .crumb{font-size:11px;color:var(--muted);cursor:pointer}
+  .ph .crumb:hover{color:var(--accent);text-decoration:underline}
+  .ph h2{font-size:16px;margin:1px 0 0;line-height:1.2}
+  .ph .uid{font-size:11px;color:var(--muted)}
+  .ph .x{flex:none;cursor:pointer;color:var(--muted);font-size:18px;line-height:1;border:none;background:none}
+  .ph .x:hover{color:#111}
+  .pb{padding:12px 14px}
+  .pb h3{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:16px 0 6px}
+  .pb h3:first-child{margin-top:0}
+  .pb p{margin:0 0 6px}
+  .def{font-size:13px}
+  .disc{font-size:12.5px;color:#444;background:#f7f7f9;border-left:3px solid #ccc;padding:6px 9px;border-radius:0 6px 6px 0}
+  .seed{font-size:12.5px;color:#333;margin:0 0 5px;padding-left:12px;text-indent:-9px}
+  .seed:before{content:"\201C";color:var(--muted)}
+  .seed:after{content:"\201D";color:var(--muted)}
+  .tier{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;background:#eef;color:#3344aa;font-weight:600}
+  .stat{color:var(--muted);font-size:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:5px}
+  .nchip{font-size:12px;padding:3px 9px;border-radius:16px;border:1px solid #ddd;background:#fafafa;cursor:pointer}
+  .nchip:hover{background:#eef1fd;border-color:#bcc6f2}
+  .term{display:flex;align-items:center;gap:8px;font-size:12.5px;margin:0 0 3px}
+  .term .t{flex:none;width:104px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .term .bar{height:9px;border-radius:3px;background:var(--accent);opacity:.8;flex:none}
+  .term .v{color:var(--muted);font-size:11px}
+  .frame{margin:0 0 8px}
+  .frame .fc{font-size:12.5px;font-weight:600}
+  .frame .fm{font-size:11.5px;color:#666}
+  .frame .fmeta{font-size:11px;color:var(--muted)}
+  .barrow{display:flex;align-items:center;gap:8px;font-size:12px;margin:0 0 3px}
+  .barrow .k{width:96px;flex:none;color:#444}
+  .barrow .b2{height:8px;border-radius:3px;background:#8c9bd6;flex:none}
+  .barrow .v{color:var(--muted);font-size:11px}
+  .samp{font-size:12px;color:#444;border-left:2px solid var(--line);padding:2px 0 2px 8px;margin:0 0 4px}
+  .empty{color:var(--muted);font-style:italic}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="side">
+    <h1>CHC ability-descriptive vocabulary</h1>
+    <p class="sub" id="sub">loading…</p>
+    <div class="legend" id="legend"></div>
+    <button id="clear">Clear selection</button>
+    <div class="foot">
+      Each dot = one ability-descriptor span. Color &amp; hull = CHC broad stratum.
+      Click a stratum to highlight; click any dot or narrow label for its fingerprint.
+    </div>
+  </div>
+  <div id="main">
+    <svg id="svg"><g id="vp">
+      <g id="gEll"></g><g id="gPts"></g><g id="gNL"></g><g id="gBL"></g>
+    </g></svg>
+    <div id="tip"></div>
+    <div id="hint">scroll = zoom · drag = pan · click a stratum to highlight</div>
+    <div id="panel">
+      <div class="ph">
+        <span class="chip" id="pChip"></span>
+        <div class="htxt">
+          <div class="crumb" id="pCrumb"></div>
+          <h2 id="pTitle"></h2>
+          <div class="uid" id="pUid"></div>
+        </div>
+        <button class="x" id="pClose" title="close">&times;</button>
+      </div>
+      <div class="pb" id="pBody"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+// ?data=<dataset> picks a subfolder under data/; joint (the Opus 5 run) is the default and only dataset.
+const DATASET = new URLSearchParams(location.search).get("data") || "joint";
+const BASE = `data/${DATASET}/`;
+const tip = document.getElementById("tip");
+const panel = document.getElementById("panel");
+
+Promise.all([
+  d3.json(BASE + "cluster_layout.json"),
+  d3.json(BASE + "inventory.json"),
+  d3.json(BASE + "fingerprints.json"),
+]).then(([layout, inv, fps]) => boot(layout, inv, fps))
+  .catch(err => {
+    document.getElementById("sub").textContent = "failed to load data — serve this folder over http (see README).";
+    console.error(err);
+  });
+
+function boot(layout, inv, fps){
+  const color = b => layout.colors[b] || "#999";
+
+  // ---- join inventory: broad + narrow metadata ----
+  const broadMeta = {};      // code -> {name, description, narrows:[uid...]}
+  const narrowMeta = {};     // uid  -> {code,name,definition,discriminator,seeds, broad}
+  inv.broad_abilities.forEach(b => {
+    broadMeta[b.code] = {name:b.name, description:b.description,
+                         group:b.conceptual_group, narrows:[]};
+    (b.narrow_abilities||[]).forEach(n => {
+      narrowMeta[n.uid] = {code:n.code, name:n.name, definition:n.definition,
+                           discriminator:n.discriminator, seeds:n.seeds||[], broad:b.code};
+      broadMeta[b.code].narrows.push(n.uid);
+    });
+  });
+
+  const methodTag = layout.mode === "joint" ? "joint (source-conditioned)"
+                  : (layout.alpha != null ? `additive α=${layout.alpha}` : "additive");
+  document.getElementById("sub").textContent =
+    `${layout.points.length} spans · ${layout.broads.length} broad strata · ${layout.proj.toUpperCase()} · ${methodTag}`;
+
+  // ---- isotropic data→screen map (preserves hull shape & rotation) ----
+  const xs = layout.points.map(p=>p.x), ys = layout.points.map(p=>p.y);
+  const minX=Math.min(...xs), maxX=Math.max(...xs), minY=Math.min(...ys), maxY=Math.max(...ys);
+  const svgEl = document.getElementById("svg");
+  let W, H, k, offx, offy;
+  function fit(){
+    const r = svgEl.getBoundingClientRect(); W=r.width; H=r.height;
+    const m = 36;
+    k = Math.min((W-2*m)/(maxX-minX || 1), (H-2*m)/(maxY-minY || 1));
+    offx = m + ((W-2*m) - (maxX-minX)*k)/2;
+    offy = m + ((H-2*m) - (maxY-minY)*k)/2;
+  }
+  const X = x => offx + (x-minX)*k;
+  const Y = y => offy + (maxY-y)*k;   // flip: data +y points up
+
+  const svg = d3.select("#svg");
+  const vp  = d3.select("#vp");
+  const gEll=d3.select("#gEll"), gPts=d3.select("#gPts"),
+        gNL=d3.select("#gNL"),  gBL=d3.select("#gBL");
+
+  function draw(){
+    fit();
+    // hull ellipses
+    gEll.selectAll("ellipse").data(layout.broads.filter(b=>b.ellipse), d=>d.b)
+      .join("ellipse").attr("class","ell")
+      .attr("cx", d=>X(d.ellipse.cx)).attr("cy", d=>Y(d.ellipse.cy))
+      .attr("rx", d=>d.ellipse.rx*k).attr("ry", d=>d.ellipse.ry*k)
+      .attr("fill", d=>color(d.b)).attr("stroke", d=>color(d.b))
+      .attr("transform", d=>{
+        const t=d.ellipse.angle*Math.PI/180;
+        const c={x:X(d.ellipse.cx), y:Y(d.ellipse.cy)};
+        const e={x:X(d.ellipse.cx + d.ellipse.rx*Math.cos(t)),
+                 y:Y(d.ellipse.cy + d.ellipse.rx*Math.sin(t))};
+        const a=Math.atan2(e.y-c.y, e.x-c.x)*180/Math.PI;  // screen-space angle
+        return `rotate(${a} ${c.x} ${c.y})`;
+      })
+      .classed("on", d=>d.b===selBroad)
+      .on("click",(ev,d)=>{ev.stopPropagation(); selectBroad(d.b);});
+
+    // points
+    gPts.selectAll("circle").data(layout.points, (d,i)=>i)
+      .join("circle").attr("class","pt")
+      .attr("cx", d=>X(d.x)).attr("cy", d=>Y(d.y))
+      .attr("r", d=>2 + 1.1*Math.log1p(d.c))
+      .attr("fill", d=>color(d.b))
+      .on("mousemove",(ev,d)=>showTip(ev, `<b>${d.u}</b> — ${narrowMeta[d.u]?narrowMeta[d.u].name:""}<br>“${d.t}”`))
+      .on("mouseleave",hideTip)
+      .on("click",(ev,d)=>{ev.stopPropagation(); selectNarrow(d.u);});
+
+    // narrow labels (hidden until selection)
+    gNL.selectAll("text").data(layout.narrows, d=>d.u)
+      .join("text").attr("class","nl")
+      .attr("x", d=>X(d.x)).attr("y", d=>Y(d.y)).attr("text-anchor","middle")
+      .text(d=>d.n)
+      .on("click",(ev,d)=>{ev.stopPropagation(); selectNarrow(d.u);})
+      .on("mousemove",(ev,d)=>showTip(ev,`<b>${d.u}</b> — ${narrowMeta[d.u]?narrowMeta[d.u].name:""}`))
+      .on("mouseleave",hideTip);
+
+    // broad labels at hull centroid
+    gBL.selectAll("text").data(layout.broads.filter(b=>b.ellipse), d=>d.b)
+      .join("text").attr("class","bl")
+      .attr("x", d=>X(d.ellipse.cx)).attr("y", d=>Y(d.ellipse.cy)+5)
+      .attr("text-anchor","middle").attr("fill", d=>color(d.b)).text(d=>d.b)
+      .classed("on", d=>d.b===selBroad)
+      .on("click",(ev,d)=>{ev.stopPropagation(); selectBroad(d.b);});
+
+    applySel();
+  }
+
+  // ---- zoom / pan (group transform; sizes scale with zoom) ----
+  const zoom = d3.zoom().scaleExtent([0.5, 40])
+    .on("zoom", ev => vp.attr("transform", ev.transform))
+    .on("start",()=>svgEl.classList.add("grabbing"))
+    .on("end",()=>svgEl.classList.remove("grabbing"));
+  svg.call(zoom).on("dblclick.zoom", null);
+
+  // ---- legend / broad buttons ----
+  const legend = d3.select("#legend");
+  layout.broads.forEach(b=>{
+    const nm = broadMeta[b.b] ? broadMeta[b.b].name : "";
+    const d = legend.append("div").attr("class","leg").attr("data-b",b.b)
+      .on("click",()=>selectBroad(b.b));
+    d.html(`<span class="sw" style="background:${color(b.b)}"></span>`+
+           `<span class="nm">${b.b} <small>${nm}</small></span>`+
+           `<span class="cnt">${b.n}</span>`);
+  });
+
+  // ---- selection state ----
+  let selBroad=null, selNarrow=null;
+  function selectBroad(b){
+    if(selBroad===b && !selNarrow){ clearSel(); return; }
+    selBroad=b; selNarrow=null; applySel(); renderBroadPanel(b);
+  }
+  function selectNarrow(uid){
+    selNarrow=uid; selBroad=narrowMeta[uid]?narrowMeta[uid].broad:(layout.points.find(p=>p.u===uid)||{}).b;
+    applySel(); renderNarrowPanel(uid);
+  }
+  function clearSel(){ selBroad=null; selNarrow=null; applySel(); hidePanel(); }
+
+  function applySel(){
+    const on = !!selBroad;
+    svgEl.classList.toggle("sel", on);
+    gPts.selectAll("circle")
+      .classed("on", d=>d.b===selBroad)
+      .classed("pick", d=>selNarrow && d.u===selNarrow);
+    gEll.selectAll("ellipse").classed("on", d=>d.b===selBroad);
+    gBL.selectAll("text").classed("on", d=>d.b===selBroad);
+    gNL.selectAll("text").classed("on", d=>selNarrow ? d.u===selNarrow : d.b===selBroad);
+    legend.selectAll(".leg").classed("active", function(){return this.getAttribute("data-b")===selBroad;});
+  }
+  document.getElementById("clear").addEventListener("click", clearSel);
+  svgEl.addEventListener("click", clearSel);
+
+  // ---- info panel ----
+  const pChip=document.getElementById("pChip"), pCrumb=document.getElementById("pCrumb"),
+        pTitle=document.getElementById("pTitle"), pUid=document.getElementById("pUid"),
+        pBody=document.getElementById("pBody");
+  document.getElementById("pClose").addEventListener("click", clearSel);
+  function hidePanel(){ panel.classList.remove("show"); }
+  function showPanel(){ panel.classList.add("show"); panel.scrollTop=0; }
+  const esc = s => (s==null?"":String(s)).replace(/[&<>]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+  const pct = v => (v*100).toFixed(0)+"%";
+
+  function renderBroadPanel(b){
+    const m = broadMeta[b] || {name:"", description:"", narrows:[]};
+    const present = new Set(layout.narrows.map(n=>n.u));   // narrows that have data
+    pChip.style.background=color(b); pCrumb.textContent=""; pCrumb.onclick=null;
+    pTitle.textContent = `${b} — ${m.name}`;
+    pUid.textContent = `broad stratum${m.group?" · "+m.group:""}`;
+    let h = `<p class="def">${esc(m.description)}</p>`;
+    h += `<h3>Narrow abilities (${m.narrows.filter(u=>present.has(u)).length} with data)</h3><div class="chips">`;
+    m.narrows.forEach(u=>{
+      const nm = narrowMeta[u] ? narrowMeta[u].name : u;
+      const has = present.has(u);
+      h += `<span class="nchip" data-u="${u}" style="${has?"":"opacity:.45"}">${u.split("-")[1]} · ${esc(nm)}</span>`;
+    });
+    h += `</div>`;
+    pBody.innerHTML = h;
+    pBody.querySelectorAll(".nchip").forEach(el=>{
+      const u=el.getAttribute("data-u");
+      if(present.has(u)) el.onclick=()=>selectNarrow(u);
+    });
+    showPanel();
+  }
+
+  function renderNarrowPanel(uid){
+    const m = narrowMeta[uid] || {};
+    const fp = fps[uid];
+    const b = m.broad || (layout.points.find(p=>p.u===uid)||{}).b;
+    pChip.style.background=color(b);
+    pCrumb.textContent = `‹ ${b} — ${broadMeta[b]?broadMeta[b].name:""}`;
+    pCrumb.onclick = ()=>selectBroad(b);
+    pTitle.textContent = m.name || uid;
+    pUid.textContent = uid;
+
+    let h = "";
+    if(m.definition) h += `<p class="def">${esc(m.definition)}</p>`;
+    if(m.discriminator) h += `<p class="disc">${esc(m.discriminator)}</p>`;
+
+    if(!fp){
+      h += `<p class="empty">No ability-descriptor fingerprint for this ability (no on-target corpus data).</p>`;
+      if(m.seeds && m.seeds.length){
+        h += `<h3>Seed descriptions</h3>` + m.seeds.slice(0,5).map(s=>`<p class="seed">${esc(s)}</p>`).join("");
+      }
+      pBody.innerHTML=h; showPanel(); return;
+    }
+
+    h += `<h3>Coverage</h3><p><span class="tier">${esc(fp.coverage_tier)}</span> `+
+         `<span class="stat">${fp.n_on_target}/${fp.n_filtered} on-target spans · `+
+         `${pct(fp.on_target_rate)} rate</span></p>`;
+
+    // lexical lift
+    if(fp.lexical && fp.lexical.length){
+      const top = fp.lexical.slice(0,10);
+      const mx = Math.max(...top.map(t=>t.lift));
+      h += `<h3>Distinctive terms (lift)</h3>`;
+      top.forEach(t=>{
+        h += `<div class="term"><span class="t">${esc(t.term)}</span>`+
+             `<span class="bar" style="width:${Math.max(4,t.lift/mx*120)}px"></span>`+
+             `<span class="v">×${t.lift.toFixed(1)} · n=${t.count}</span></div>`;
+      });
+    }
+
+    // conceptual frames
+    const frames = fp.conceptual_frame || fp.canonical_descriptions;
+    if(frames && frames.length){
+      h += `<h3>Conceptual frames</h3>`;
+      frames.slice(0,5).forEach(f=>{
+        h += `<div class="frame"><span class="fc">${esc(f.canonical)}</span> `+
+             `<span class="fmeta">${pct(f.share)} · distinct ${f.distinctiveness.toFixed(1)}</span>`+
+             `<div class="fm">${esc((f.members||[]).slice(0,3).join(" · "))}</div></div>`;
+      });
+    }
+
+    h += barBlock("Construal", fp.construal_pattern);
+    h += barBlock("Register", fp.register);
+    if(fp.evaluative_framing){
+      h += barBlock("Tone", fp.evaluative_framing.tone);
+      if(fp.evaluative_framing.rarity) h += barBlock("Rarity", fp.evaluative_framing.rarity);
+      const sc = fp.evaluative_framing.social_contexts;
+      if(sc && sc.length) h += `<h3>Social contexts</h3><p class="stat">${esc(sc.join(" · "))}</p>`;
+    }
+
+    // sample spans from the scatter points of this ability
+    const samples = layout.points.filter(p=>p.u===uid).slice(0,6);
+    if(samples.length){
+      h += `<h3>Sample ability descriptors</h3>` +
+           samples.map(s=>`<p class="samp">“${esc(s.t)}”</p>`).join("");
+    }
+    pBody.innerHTML=h; showPanel();
+  }
+
+  function barBlock(title, obj){
+    if(!obj) return "";
+    const ent = Object.entries(obj).sort((a,b)=>b[1]-a[1]);
+    if(!ent.length) return "";
+    let h = `<h3>${title}</h3>`;
+    ent.forEach(([k,v])=>{
+      h += `<div class="barrow"><span class="k">${esc(k)}</span>`+
+           `<span class="b2" style="width:${Math.max(3,v*120)}px"></span>`+
+           `<span class="v">${pct(v)}</span></div>`;
+    });
+    return h;
+  }
+
+  // ---- tooltip ----
+  function showTip(ev, html){
+    const r=document.getElementById("main").getBoundingClientRect();
+    tip.innerHTML=html;
+    tip.style.left=(ev.clientX-r.left+14)+"px";
+    tip.style.top=(ev.clientY-r.top+14)+"px";
+    tip.style.opacity=1;
+  }
+  function hideTip(){ tip.style.opacity=0; }
+
+  // ---- initial draw + resize ----
+  draw();
+  let rt; window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(draw,120);});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+# Stage 5 · Step A — source-conditioned joint embedding. Needs a CUDA GPU (BGE-M3).
+#
+#
+# Reads the llm:claude-opus-5.5 extraction.
+#   uv run python scripts/p5_embed_joint.py configs/p5_joint_embed.yaml [--ability Gr-FA] [--overwrite]
+#
+# Emits one independent vector per (span, source sentence) — the honest, label-free
+# input for Stage-5 clustering / alignment / discriminant analysis. No prototype blend,
+# so within-ability variance is genuine and a label-blind clustering is a real
+# recovery test of CHC structure (contrast: fingerprint_vectors.npz, display-only).
+
+extraction_annotator: llm:claude-opus-5.5   # informational: the Stage 4 run all _opus55 paths below come from
+output_path: data/processed/clusters/track_a_opus55/joint_vectors.npz
+corpus_dir: data/processed/corpus/track_a_v10              # {uid}_filtered.jsonl (source sentence = `text`)
+descriptions_dir: data/processed/descriptions/track_a_opus55  # {uid}_extracted.jsonl (Step-A spans)
+inventory_path: data/raw/chc_taxonomy.json   # + sibling chc_project_annotations.json
+
+encoder_model: BAAI/bge-m3                             # same encoder as retrieval / fingerprint
+device: cuda
+batch_size: 256
+
+# joint string: span (descriptor phrase, in focus) conditioned on its one-sentence passage.
+template: "{span} [SEP] {source}"
+min_span_chars: 2                                      # drop degenerate spans

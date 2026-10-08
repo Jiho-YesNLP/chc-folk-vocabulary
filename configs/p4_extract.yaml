@@ -1,0 +1,39 @@
+# Stage 4 · Step A — unified per-passage ability-descriptor extraction (LLM).
+# Runs against the OpenAI-compatible gateway (OPENAI_API_KEY + OPENAI_BASE_URL in env),
+# same as p3_annotate.py; no GPU.
+#
+#   uv run python scripts/p4_extract_descriptions.py configs/p4_extract.yaml --pilot --limit 10
+#   uv run python scripts/p4_extract_descriptions.py configs/p4_extract.yaml --all
+
+output_dir: data/processed/descriptions/track_a    # {uid}_extracted.jsonl
+corpus_dir: data/processed/corpus/track_a_v10          # {uid}_filtered.jsonl from Stage 3
+inventory_path: data/raw/chc_taxonomy.json   # + sibling chc_project_annotations.json
+
+model: gpt-4o                                       # matches the p3_annotate.py annotator
+temperature: 0
+batch_size: 10
+sleep: 0.3                                          # politeness pause between batches
+
+# Per-ability extraction bounds. cap and floor are deliberately DIFFERENT numbers,
+# not one "target count" -- flattening every ability to the same extracted-passage
+# count would erase the relative descriptor-richness signal Stage 5's clustering/density
+# view depends on (an ability with 3 retained passages must still look sparser than
+# one with 46). Above the cap: random subsample down to it, so no single descriptor-rich
+# ability dominates p4_build_fingerprint.py's shared cross-ability background
+# distribution (uncapped, the top 14/84 abilities supplied 66% of all background
+# tokens). Between the floor and the cap: extracted AS-IS, no padding/subsampling --
+# true retained count preserved exactly. Below the floor: backfilled UP TO the floor
+# (never to the cap) with the highest-scoring SUB-threshold candidates from
+# {uid}_scored.jsonl, so an ability with 0 retained doesn't silently vanish from
+# extraction -- the per-passage extraction LLM still makes its own on_target call,
+# so a backfilled passage that's genuinely off-topic is simply dropped there, not
+# laundered through. floor=10 matches p4_build_fingerprint.py's none/sparse tier
+# boundary, so backfill can never manufacture a "high" tier result by itself.
+# n_retained / coverage_tier in coverage_report.json are computed upstream and are
+# UNAFFECTED by either bound -- they remain the true coverage measurement.
+extract_cap: 100
+extract_floor: 10
+extract_seed: 42                                    # RNG seed for the >cap random subsample
+
+# guard against silent prompt drift — must equal description_schema.PROMPT_VERSION
+prompt_version_pin: extract-v2

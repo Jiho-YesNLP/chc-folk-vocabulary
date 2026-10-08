@@ -1,0 +1,31 @@
+# Stage 5 · representation ablation — span vs. source vs. span[SEP]source.
+#
+#   uv run python scripts/p5_repr_ablation.py configs/p5_repr_ablation.yaml
+#
+# Encoding is the only expensive step and is cached, so re-running with different
+# k / seeds / bootstrap settings costs nothing after the first pass.
+
+extraction_annotator: llm:claude-opus-5.5   # informational: the Stage 4 run all _opus55 paths below come from
+descriptions_dir: data/processed/descriptions/track_a_opus55
+corpus_dir: data/processed/corpus/track_a_v10   # source sentences (`text`)
+inventory_path: data/raw/chc_taxonomy.json   # + sibling chc_project_annotations.json
+output_dir: results/repr_ablation_opus55
+cache_path: data/interim/repr_ablation_vectors_opus55.npz   # gitignored; delete to force re-encode
+
+encoder_model: BAAI/bge-m3
+device: cpu                   # smoke-tested locally; set cuda on a GPU machine
+batch_size: 256
+
+sep: " [SEP] "               # must match configs/p5_joint_embed.yaml's template
+
+knn_k: 10                    # matches cluster_viz configs and the manuscript.
+                             # NOTE: abilities with n <= k have narrow purity capped at
+                             # (n-1)/k by arithmetic; 7 of 83 abilities are affected at k=10.
+cap_per_ability: 30          # balanced variant only; raw variant is uncapped
+seeds: [42, 43, 44]          # subsample seeds for the balanced variant
+bootstrap_n: 2000
+bootstrap_alpha: 0.05        # -> 95% CI
+kmeans_seeds: 3              # restarts for the label-blind k-means ARI (per evaluation)
+# Cross-listed abilities are resolved to one parent in the taxonomy (RS, WS -> Grw; P -> Gs),
+# so no ability is excluded as a duplicate.
+exclude_abilities: []

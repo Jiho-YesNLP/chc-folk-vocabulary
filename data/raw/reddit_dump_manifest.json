@@ -1,0 +1,445 @@
+{
+ "description": "The 54 Reddit comment dumps the corpus was built from, as they appear in data/raw/reddit.torrent. torrent_index is the 1-based file index (aria2c --select-file); size_bytes is the exact file length from the torrent; comment counts are from p2_build_index.py --inspect over the downloaded files.",
+ "torrent_file": "data/raw/reddit.torrent",
+ "torrent_sha256": "6895efd088276a8e0e41d8a1b0d864c2991f5088f2edcf2cade7012f127eddf7",
+ "infohash": "3e3f64dee22dc304cdd2546254ca1f8e8ae542b4",
+ "source": "Academic Torrents, 'top 40k subreddits' Pushshift-format dumps (2005-2025, directory subreddits25/). The listing was no longer available on academictorrents.com as of 2026-10-08; the torrent file here identifies the exact dump.",
+ "n_files_in_torrent": 79955,
+ "n_files_used": 54,
+ "total_size_bytes": 20911974261,
+ "total_comments": 131364856,
+ "files": [
+  {
+   "subreddit": "ADHD",
+   "torrent_index": 833,
+   "path": "subreddits25/ADHD_comments.zst",
+   "size_bytes": 1780860076,
+   "total_comments": 9475358,
+   "nondeleted_comments": 8971676
+  },
+  {
+   "subreddit": "aimlab",
+   "torrent_index": 49101,
+   "path": "subreddits25/aimlab_comments.zst",
+   "size_bytes": 8264434,
+   "total_comments": 64734,
+   "nondeleted_comments": 62753
+  },
+  {
+   "subreddit": "Anki",
+   "torrent_index": 2788,
+   "path": "subreddits25/Anki_comments.zst",
+   "size_bytes": 68965201,
+   "total_comments": 402128,
+   "nondeleted_comments": 389074
+  },
+  {
+   "subreddit": "Aphantasia",
+   "torrent_index": 2938,
+   "path": "subreddits25/Aphantasia_comments.zst",
+   "size_bytes": 69270994,
+   "total_comments": 373599,
+   "nondeleted_comments": 361476
+  },
+  {
+   "subreddit": "ArtificialInteligence",
+   "torrent_index": 3368,
+   "path": "subreddits25/ArtificialInteligence_comments.zst",
+   "size_bytes": 156152144,
+   "total_comments": 862368,
+   "nondeleted_comments": 826956
+  },
+  {
+   "subreddit": "asl",
+   "torrent_index": 50287,
+   "path": "subreddits25/asl_comments.zst",
+   "size_bytes": 31239796,
+   "total_comments": 190373,
+   "nondeleted_comments": 185406
+  },
+  {
+   "subreddit": "autism",
+   "torrent_index": 50559,
+   "path": "subreddits25/autism_comments.zst",
+   "size_bytes": 1193845129,
+   "total_comments": 7056844,
+   "nondeleted_comments": 6881574
+  },
+  {
+   "subreddit": "AutisticAdults",
+   "torrent_index": 4211,
+   "path": "subreddits25/AutisticAdults_comments.zst",
+   "size_bytes": 174757194,
+   "total_comments": 804993,
+   "nondeleted_comments": 792425
+  },
+  {
+   "subreddit": "Calligraphy",
+   "torrent_index": 8051,
+   "path": "subreddits25/Calligraphy_comments.zst",
+   "size_bytes": 42707336,
+   "total_comments": 313006,
+   "nondeleted_comments": 304201
+  },
+  {
+   "subreddit": "chess",
+   "torrent_index": 53507,
+   "path": "subreddits25/chess_comments.zst",
+   "size_bytes": 833877778,
+   "total_comments": 5854584,
+   "nondeleted_comments": 5561656
+  },
+  {
+   "subreddit": "Cochlearimplants",
+   "torrent_index": 9793,
+   "path": "subreddits25/Cochlearimplants_comments.zst",
+   "size_bytes": 12473248,
+   "total_comments": 64900,
+   "nondeleted_comments": 64060
+  },
+  {
+   "subreddit": "cognitiveTesting",
+   "torrent_index": 54078,
+   "path": "subreddits25/cognitiveTesting_comments.zst",
+   "size_bytes": 72009604,
+   "total_comments": 452110,
+   "nondeleted_comments": 429563
+  },
+  {
+   "subreddit": "cogsci",
+   "torrent_index": 54080,
+   "path": "subreddits25/cogsci_comments.zst",
+   "size_bytes": 26061337,
+   "total_comments": 137935,
+   "nondeleted_comments": 129018
+  },
+  {
+   "subreddit": "crossword",
+   "torrent_index": 54774,
+   "path": "subreddits25/crossword_comments.zst",
+   "size_bytes": 33949797,
+   "total_comments": 257416,
+   "nondeleted_comments": 252193
+  },
+  {
+   "subreddit": "deaf",
+   "torrent_index": 55546,
+   "path": "subreddits25/deaf_comments.zst",
+   "size_bytes": 56508658,
+   "total_comments": 296367,
+   "nondeleted_comments": 286536
+  },
+  {
+   "subreddit": "drawing",
+   "torrent_index": 56452,
+   "path": "subreddits25/drawing_comments.zst",
+   "size_bytes": 355699783,
+   "total_comments": 3583164,
+   "nondeleted_comments": 3471805
+  },
+  {
+   "subreddit": "dyscalculia",
+   "torrent_index": 56694,
+   "path": "subreddits25/dyscalculia_comments.zst",
+   "size_bytes": 8035968,
+   "total_comments": 41343,
+   "nondeleted_comments": 38768
+  },
+  {
+   "subreddit": "Dyslexia",
+   "torrent_index": 13844,
+   "path": "subreddits25/Dyslexia_comments.zst",
+   "size_bytes": 30265772,
+   "total_comments": 163279,
+   "nondeleted_comments": 158975
+  },
+  {
+   "subreddit": "education",
+   "torrent_index": 56895,
+   "path": "subreddits25/education_comments.zst",
+   "size_bytes": 116112234,
+   "total_comments": 598176,
+   "nondeleted_comments": 549115
+  },
+  {
+   "subreddit": "etymology",
+   "torrent_index": 57316,
+   "path": "subreddits25/etymology_comments.zst",
+   "size_bytes": 57233633,
+   "total_comments": 363905,
+   "nondeleted_comments": 351054
+  },
+  {
+   "subreddit": "geoguessr",
+   "torrent_index": 59564,
+   "path": "subreddits25/geoguessr_comments.zst",
+   "size_bytes": 76522114,
+   "total_comments": 503778,
+   "nondeleted_comments": 490957
+  },
+  {
+   "subreddit": "Gifted",
+   "torrent_index": 18707,
+   "path": "subreddits25/Gifted_comments.zst",
+   "size_bytes": 99972949,
+   "total_comments": 444246,
+   "nondeleted_comments": 434956
+  },
+  {
+   "subreddit": "GRE",
+   "torrent_index": 17736,
+   "path": "subreddits25/GRE_comments.zst",
+   "size_bytes": 56350814,
+   "total_comments": 430140,
+   "nondeleted_comments": 410713
+  },
+  {
+   "subreddit": "Handwriting",
+   "torrent_index": 20037,
+   "path": "subreddits25/Handwriting_comments.zst",
+   "size_bytes": 81882919,
+   "total_comments": 698648,
+   "nondeleted_comments": 668304
+  },
+  {
+   "subreddit": "hardofhearing",
+   "torrent_index": 60629,
+   "path": "subreddits25/hardofhearing_comments.zst",
+   "size_bytes": 8749931,
+   "total_comments": 44087,
+   "nondeleted_comments": 42977
+  },
+  {
+   "subreddit": "homeschool",
+   "torrent_index": 61172,
+   "path": "subreddits25/homeschool_comments.zst",
+   "size_bytes": 107456091,
+   "total_comments": 478508,
+   "nondeleted_comments": 464369
+  },
+  {
+   "subreddit": "languagelearning",
+   "torrent_index": 63705,
+   "path": "subreddits25/languagelearning_comments.zst",
+   "size_bytes": 479228204,
+   "total_comments": 2631701,
+   "nondeleted_comments": 2521494
+  },
+  {
+   "subreddit": "learnart",
+   "torrent_index": 63880,
+   "path": "subreddits25/learnart_comments.zst",
+   "size_bytes": 98863784,
+   "total_comments": 641942,
+   "nondeleted_comments": 508954
+  },
+  {
+   "subreddit": "learnmath",
+   "torrent_index": 63896,
+   "path": "subreddits25/learnmath_comments.zst",
+   "size_bytes": 257421800,
+   "total_comments": 1445923,
+   "nondeleted_comments": 1375033
+  },
+  {
+   "subreddit": "learnprogramming",
+   "torrent_index": 63900,
+   "path": "subreddits25/learnprogramming_comments.zst",
+   "size_bytes": 796206264,
+   "total_comments": 4447026,
+   "nondeleted_comments": 4210330
+  },
+  {
+   "subreddit": "linguistics",
+   "torrent_index": 64256,
+   "path": "subreddits25/linguistics_comments.zst",
+   "size_bytes": 172230079,
+   "total_comments": 939827,
+   "nondeleted_comments": 851780
+  },
+  {
+   "subreddit": "LSAT",
+   "torrent_index": 24651,
+   "path": "subreddits25/LSAT_comments.zst",
+   "size_bytes": 178172440,
+   "total_comments": 1262785,
+   "nondeleted_comments": 1189248
+  },
+  {
+   "subreddit": "MapPorn",
+   "torrent_index": 26995,
+   "path": "subreddits25/MapPorn_comments.zst",
+   "size_bytes": 2028473885,
+   "total_comments": 15518143,
+   "nondeleted_comments": 14825695
+  },
+  {
+   "subreddit": "math",
+   "torrent_index": 65169,
+   "path": "subreddits25/math_comments.zst",
+   "size_bytes": 486009969,
+   "total_comments": 2878967,
+   "nondeleted_comments": 2701182
+  },
+  {
+   "subreddit": "musictheory",
+   "torrent_index": 66471,
+   "path": "subreddits25/musictheory_comments.zst",
+   "size_bytes": 343131422,
+   "total_comments": 1728980,
+   "nondeleted_comments": 1664581
+  },
+  {
+   "subreddit": "neuroscience",
+   "torrent_index": 66916,
+   "path": "subreddits25/neuroscience_comments.zst",
+   "size_bytes": 19489924,
+   "total_comments": 105158,
+   "nondeleted_comments": 100090
+  },
+  {
+   "subreddit": "Nootropics",
+   "torrent_index": 30756,
+   "path": "subreddits25/Nootropics_comments.zst",
+   "size_bytes": 268722127,
+   "total_comments": 1779072,
+   "nondeleted_comments": 1638740
+  },
+  {
+   "subreddit": "osugame",
+   "torrent_index": 68332,
+   "path": "subreddits25/osugame_comments.zst",
+   "size_bytes": 486034266,
+   "total_comments": 4636743,
+   "nondeleted_comments": 4445456
+  },
+  {
+   "subreddit": "Parenting",
+   "torrent_index": 33021,
+   "path": "subreddits25/Parenting_comments.zst",
+   "size_bytes": 2260381405,
+   "total_comments": 11545856,
+   "nondeleted_comments": 10995464
+  },
+  {
+   "subreddit": "piano",
+   "torrent_index": 69122,
+   "path": "subreddits25/piano_comments.zst",
+   "size_bytes": 306732692,
+   "total_comments": 1854530,
+   "nondeleted_comments": 1795437
+  },
+  {
+   "subreddit": "productivity",
+   "torrent_index": 69941,
+   "path": "subreddits25/productivity_comments.zst",
+   "size_bytes": 167634544,
+   "total_comments": 986607,
+   "nondeleted_comments": 913754
+  },
+  {
+   "subreddit": "psychology",
+   "torrent_index": 70121,
+   "path": "subreddits25/psychology_comments.zst",
+   "size_bytes": 191171320,
+   "total_comments": 1113766,
+   "nondeleted_comments": 979862
+  },
+  {
+   "subreddit": "puzzles",
+   "torrent_index": 70284,
+   "path": "subreddits25/puzzles_comments.zst",
+   "size_bytes": 64835395,
+   "total_comments": 585547,
+   "nondeleted_comments": 448127
+  },
+  {
+   "subreddit": "singing",
+   "torrent_index": 72927,
+   "path": "subreddits25/singing_comments.zst",
+   "size_bytes": 222029666,
+   "total_comments": 1363343,
+   "nondeleted_comments": 1320742
+  },
+  {
+   "subreddit": "SketchDaily",
+   "torrent_index": 39441,
+   "path": "subreddits25/SketchDaily_comments.zst",
+   "size_bytes": 70929480,
+   "total_comments": 615066,
+   "nondeleted_comments": 603072
+  },
+  {
+   "subreddit": "slatestarcodex",
+   "torrent_index": 73121,
+   "path": "subreddits25/slatestarcodex_comments.zst",
+   "size_bytes": 282269559,
+   "total_comments": 1162946,
+   "nondeleted_comments": 1111099
+  },
+  {
+   "subreddit": "slp",
+   "torrent_index": 73169,
+   "path": "subreddits25/slp_comments.zst",
+   "size_bytes": 118587092,
+   "total_comments": 606794,
+   "nondeleted_comments": 592690
+  },
+  {
+   "subreddit": "specialeducation",
+   "torrent_index": 73695,
+   "path": "subreddits25/specialeducation_comments.zst",
+   "size_bytes": 7886471,
+   "total_comments": 38521,
+   "nondeleted_comments": 37891
+  },
+  {
+   "subreddit": "Teachers",
+   "torrent_index": 42323,
+   "path": "subreddits25/Teachers_comments.zst",
+   "size_bytes": 1469032357,
+   "total_comments": 8462723,
+   "nondeleted_comments": 7833123
+  },
+  {
+   "subreddit": "tipofmytongue",
+   "torrent_index": 75843,
+   "path": "subreddits25/tipofmytongue_comments.zst",
+   "size_bytes": 1161272910,
+   "total_comments": 12329066,
+   "nondeleted_comments": 11237400
+  },
+  {
+   "subreddit": "typing",
+   "torrent_index": 76705,
+   "path": "subreddits25/typing_comments.zst",
+   "size_bytes": 13141030,
+   "total_comments": 75377,
+   "nondeleted_comments": 73760
+  },
+  {
+   "subreddit": "woodworking",
+   "torrent_index": 79316,
+   "path": "subreddits25/woodworking_comments.zst",
+   "size_bytes": 930783261,
+   "total_comments": 7194628,
+   "nondeleted_comments": 6985452
+  },
+  {
+   "subreddit": "worldbuilding",
+   "torrent_index": 79368,
+   "path": "subreddits25/worldbuilding_comments.zst",
+   "size_bytes": 1282108738,
+   "total_comments": 5339598,
+   "nondeleted_comments": 5228365
+  },
+  {
+   "subreddit": "writing",
+   "torrent_index": 79458,
+   "path": "subreddits25/writing_comments.zst",
+   "size_bytes": 1189969243,
+   "total_comments": 6118232,
+   "nondeleted_comments": 5886640
+  }
+ ]
+}

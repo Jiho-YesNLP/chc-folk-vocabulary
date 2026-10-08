@@ -1,0 +1,36 @@
+# Stage 4 · Step B — deterministic fingerprint assembly for the llm:claude-opus-5.5
+# extraction run. Needs a CUDA GPU (BGE-M3).
+#
+#   uv run python scripts/p4_build_fingerprint.py configs/p4_fingerprint.yaml [--ability Gr-FA] [--overwrite]
+
+extraction_annotator: llm:claude-opus-5.5   # informational: the Stage 4 run all _opus55 paths below come from
+output_dir: data/processed/fingerprints/track_a_opus55   # {uid}.json, fingerprints.json, report, canonical_review
+corpus_dir: data/processed/corpus/track_a_v10      # {uid}_filtered.jsonl (passage text)
+descriptions_dir: data/processed/descriptions/track_a_opus55  # {uid}_extracted.jsonl (Step A, llm:claude-opus-5.5)
+inventory_path: data/raw/chc_taxonomy.json   # + sibling chc_project_annotations.json
+coverage_path: results/annotation_stats/coverage.csv   # random-sample coverage table: the single source of coverage tiers
+
+encoder_model: BAAI/bge-m3                          # same encoder as retrieval (src/models/encoder.py)
+device: cuda
+batch_size: 256
+
+# synonym-merge (greedy cosine leader clustering)
+merge_threshold: 0.80          # spans -> canonical descriptions
+schema_merge_threshold: 0.72   # conceptual_schema phrases -> dominant frames (looser: short labels)
+
+# lexical component (PMI lift over the pooled on-target corpus)
+lexical_top_k: 25
+lexical_min_count: 3
+
+# how many canonical descriptions / conceptual frames to keep per ability in the fingerprint
+canonical_top_k: 20
+
+# proper-noun filter for the lexical component (src/data/lexical.py:proper_nouns).
+# A lemma is dropped only if BOTH hold: it is capitalized in >= cap_ratio of its
+# informative occurrences (sentence-initial and ALL-CAPS positions don't count), AND
+# it has no WordNet synset. The WordNet half is what keeps german/french/english/asl,
+# which are real folk vocabulary for Gkn-KL and Gkn-KF; the casing half is what catches
+# personal names and platform names. Set proper_noun_filter: false to keep every lemma.
+proper_noun_filter: true
+proper_noun_min_obs: 4         # min informative occurrences before a lemma can be judged
+proper_noun_cap_ratio: 0.85    # share of those that must be capitalized

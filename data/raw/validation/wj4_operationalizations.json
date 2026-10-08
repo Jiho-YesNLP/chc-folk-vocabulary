@@ -1,0 +1,736 @@
+{
+ "version": "wj4-ops-v1",
+ "frozen": "2026-09-28",
+ "description_rules": "Each description expands the Stimuli, Task Requirements and Response columns of WJ IV Technical Abstract Tables 11-13 (LaForte, McGrew & Schrank, 2014) into one or two sentences of at most 40 words, in the third person beginning 'The examinee', with no test name, no CHC label, no construct words (memory, reasoning, fluency, processing, attention, speed as a noun), and no verbatim items, stimuli or scoring keys.",
+ "overlap_cutoff": 0.7,
+ "excluded": [
+  {
+   "id": "COG-03",
+   "name": "Verbal Attention",
+   "first_listed": "Gwm-WM",
+   "reason": "Working memory capacity: \"technically not a narrow ability (WMC = short-term storage + AC)\" (Schneider, 2017). Not in inventory."
+  },
+  {
+   "id": "COG-10",
+   "name": "Numbers Reversed",
+   "first_listed": "Gwm-WM",
+   "reason": "Working memory capacity: \"technically not a narrow ability (WMC = short-term storage + AC)\" (Schneider, 2017). Not in inventory."
+  },
+  {
+   "id": "COG-16",
+   "name": "Object-Number Sequencing",
+   "first_listed": "Gwm-WM",
+   "reason": "Working memory capacity: \"technically not a narrow ability (WMC = short-term storage + AC)\" (Schneider, 2017). Not in inventory."
+  },
+  {
+   "id": "OL-06",
+   "name": "Understanding Directions",
+   "first_listed": "Gwm-WM",
+   "reason": "Working memory capacity: \"technically not a narrow ability (WMC = short-term storage + AC)\" (Schneider, 2017). Not in inventory."
+  },
+  {
+   "id": "OL-08",
+   "name": "Retrieval Fluency",
+   "first_listed": "Glr-LA",
+   "reason": "Speed of lexical access: \"an intermediate stratum level ability\" (Schneider, 2017). Not in inventory."
+  },
+  {
+   "id": "ACH-19",
+   "name": "Social Studies",
+   "first_listed": "Gkn-K2",
+   "reason": "Knowledge of culture: a CHC narrow ability (Schneider, 2017) absent from the inventory."
+  },
+  {
+   "id": "ACH-20",
+   "name": "Humanities",
+   "first_listed": "Gkn-K2",
+   "reason": "Knowledge of culture: a CHC narrow ability (Schneider, 2017) absent from the inventory."
+  }
+ ],
+ "tests": [
+  {
+   "id": "COG-01",
+   "name": "Oral Vocabulary",
+   "battery": "COG",
+   "wj_codes": [
+    "Gc-VL",
+    "Gc-LD"
+   ],
+   "targets": [
+    "Gc-VL",
+    "Gc-LD"
+   ],
+   "description": "The examinee hears a word and verbally provides both a synonym and an antonym aloud.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 1",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.5869,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-02",
+   "name": "Number Series",
+   "battery": "COG",
+   "wj_codes": [
+    "Gf-RQ",
+    "Gf-I"
+   ],
+   "targets": [
+    "Gf-RQ",
+    "Gf-I"
+   ],
+   "description": "The examinee is presented with numbers, identifies a sequence with one or more numbers missing, and verbally states the numbers.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 2",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.6377,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-04",
+   "name": "Letter-Pattern Matching",
+   "battery": "COG",
+   "wj_codes": [
+    "Gs-P"
+   ],
+   "targets": [
+    "Gs-P"
+   ],
+   "description": "The examinee is presented with letters and quickly identifies and circles identical letters or patterns.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 4",
+   "provenance": "written by the PI (moved from the note field)",
+   "definition_overlap": 0.6278,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-05",
+   "name": "Phonological Processing",
+   "battery": "COG",
+   "wj_codes": [
+    "Ga-PC",
+    "Glr-FW",
+    "Glr-LA"
+   ],
+   "targets": [
+    "Ga-PC",
+    "Gr-FW"
+   ],
+   "description": "The examinee listens to words and responds verbally by saying a word that contains a given sound, listing all the words they can that start with a given sound, and creating a new word by changing part of another word.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 5",
+   "provenance": "corrected by Claude at the PI's request (first part matched to source)",
+   "definition_overlap": 0.6517,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-06",
+   "name": "Story Recall",
+   "battery": "COG",
+   "wj_codes": [
+    "Glr-MM",
+    "Gc-LS"
+   ],
+   "targets": [
+    "Gl-MM",
+    "Gc-LS"
+   ],
+   "description": "The examinee listens to stories and tells the story in detail again.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 6",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.5552,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-07",
+   "name": "Visualization",
+   "battery": "COG",
+   "wj_codes": [
+    "Gv-Vz"
+   ],
+   "targets": [
+    "Gv-Vz"
+   ],
+   "description": "The examinee views shapes and designs, identifies two-dimensional pieces that make a shape and two rotated three-dimensional block arrangements matching a target, and responds by saying the matching target.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 7",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.5842,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-08",
+   "name": "General Information",
+   "battery": "COG",
+   "wj_codes": [
+    "Gc-K0"
+   ],
+   "targets": [
+    "Gc-K0"
+   ],
+   "description": "The examinee hears questions about an object, where an object is typically found, and how people would use it, then answers aloud in phrases or sentences.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 8",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.5578,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-09",
+   "name": "Concept Formation",
+   "battery": "COG",
+   "wj_codes": [
+    "Gf-I"
+   ],
+   "targets": [
+    "Gf-I"
+   ],
+   "description": "The examinee views drawings, identifying what they show as a pattern, grouping them into categories, and determining rules.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 9",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.651,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-11",
+   "name": "Number-Pattern Matching",
+   "battery": "COG",
+   "wj_codes": [
+    "Gs-P"
+   ],
+   "targets": [
+    "Gs-P"
+   ],
+   "description": "The examinee is shown an image set of numbers and rapidly locates identical numbers, marking them by rotating.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 11",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.5719,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-12",
+   "name": "Nonword Repetition",
+   "battery": "COG",
+   "wj_codes": [
+    "Ga-PC",
+    "Ga-UM",
+    "Gwm-MS"
+   ],
+   "targets": [
+    "Ga-PC",
+    "Ga-UM",
+    "Gwm-Wa"
+   ],
+   "description": "The examinee listens to a made-up word and says it aloud without changing it.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 12",
+   "provenance": "model example selected unedited by the PI",
+   "definition_overlap": 0.4682,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-13",
+   "name": "Visual-Auditory Learning",
+   "battery": "COG",
+   "wj_codes": [
+    "Glr-MA"
+   ],
+   "targets": [
+    "Gl-MA"
+   ],
+   "description": "The examinee hears words while being shown their picture symbols, then is asked to give the words depicted in the pictures as spoken sentences.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 13",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.47,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-14",
+   "name": "Picture Recognition",
+   "battery": "COG",
+   "wj_codes": [
+    "Gv-MV"
+   ],
+   "targets": [
+    "Gv-MV"
+   ],
+   "description": "The examinee is shown pictures, then selects those shown before from a group containing similar distractors.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 14",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.5479,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-15",
+   "name": "Analysis-Synthesis",
+   "battery": "COG",
+   "wj_codes": [
+    "Gf-RG"
+   ],
+   "targets": [
+    "Gf-RG"
+   ],
+   "description": "The examinee views drawings of puzzles and uses symbolic expressions to find the missing parts.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 15",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.4968,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-17",
+   "name": "Pair Cancellation",
+   "battery": "COG",
+   "wj_codes": [
+    "Gs-P",
+    "Gv-SS",
+    "Gwm-AC"
+   ],
+   "targets": [
+    "Gs-P",
+    "Gv-SS",
+    "Gwm-AC"
+   ],
+   "description": "The examinee is shown drawings and quickly finds a pattern that appears more than once.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 17",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.5478,
+   "overlap_flag": false
+  },
+  {
+   "id": "COG-18",
+   "name": "Memory for Words",
+   "battery": "COG",
+   "wj_codes": [
+    "Gwm-MS"
+   ],
+   "targets": [
+    "Gwm-Wa"
+   ],
+   "description": "The examinee listens to words that are unrelated to one another and repeats them in the same order.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 11, COG 18",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.5511,
+   "overlap_flag": false
+  },
+  {
+   "id": "OL-01",
+   "name": "Picture Vocabulary",
+   "battery": "OL",
+   "wj_codes": [
+    "Gc-VL",
+    "Gc-LD"
+   ],
+   "targets": [
+    "Gc-VL",
+    "Gc-LD"
+   ],
+   "description": "The examinee views pictures and says a word that describes the objects they show.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 12, OL 1",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.5415,
+   "overlap_flag": false
+  },
+  {
+   "id": "OL-02",
+   "name": "Oral Comprehension",
+   "battery": "OL",
+   "wj_codes": [
+    "Gc-LS"
+   ],
+   "targets": [
+    "Gc-LS"
+   ],
+   "description": "The examinee listens to a passage and finds a missing word that fits its meaning.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 12, OL 2",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.5419,
+   "overlap_flag": false
+  },
+  {
+   "id": "OL-03",
+   "name": "Segmentation",
+   "battery": "OL",
+   "wj_codes": [
+    "Ga-PC"
+   ],
+   "targets": [
+    "Ga-PC"
+   ],
+   "description": "The examinee listens to a word and orally gives its syllables or phonemes.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 12, OL 3",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.6248,
+   "overlap_flag": false
+  },
+  {
+   "id": "OL-04",
+   "name": "Rapid Picture Naming",
+   "battery": "OL",
+   "wj_codes": [
+    "Glr-NA",
+    "Glr-LA"
+   ],
+   "targets": [
+    "Gr-NA"
+   ],
+   "description": "The examinee is shown pictures of objects and is asked to say what they are called, giving their names aloud rapidly.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 12, OL 4",
+   "provenance": "model example selected unedited by the PI",
+   "definition_overlap": 0.7269,
+   "overlap_flag": true
+  },
+  {
+   "id": "OL-05",
+   "name": "Sentence Repetition",
+   "battery": "OL",
+   "wj_codes": [
+    "Gwm-MS",
+    "Gc-LS"
+   ],
+   "targets": [
+    "Gwm-Wa",
+    "Gc-LS"
+   ],
+   "description": "The examinee hears words and sentences and repeats each word, phrase, or sentence in the order presented.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 12, OL 5",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.61,
+   "overlap_flag": false
+  },
+  {
+   "id": "OL-07",
+   "name": "Sound Blending",
+   "battery": "OL",
+   "wj_codes": [
+    "Ga-PC"
+   ],
+   "targets": [
+    "Ga-PC"
+   ],
+   "description": "The examinee listens to individual sounds and combines them into a word, responding aloud.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 12, OL 7",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.6184,
+   "overlap_flag": false
+  },
+  {
+   "id": "OL-09",
+   "name": "Sound Awareness",
+   "battery": "OL",
+   "wj_codes": [
+    "Ga-PC"
+   ],
+   "targets": [
+    "Ga-PC"
+   ],
+   "description": "The examinee listens to spoken questions and words, says a rhyming word, and removes word parts to form a new word.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 12, OL 9",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.6029,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-01",
+   "name": "Letter-Word Identification",
+   "battery": "ACH",
+   "wj_codes": [
+    "Grw-RD"
+   ],
+   "targets": [
+    "Grw-RD"
+   ],
+   "description": "The examinee sees letters and words in print and names the letters and reads the words aloud.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 1",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.6599,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-02",
+   "name": "Applied Problems",
+   "battery": "ACH",
+   "wj_codes": [
+    "Gq-A3",
+    "Gf-RQ"
+   ],
+   "targets": [
+    "Gq-A3",
+    "Gf-RQ"
+   ],
+   "description": "The examinee hears math questions and sees numbers and text, carries out the calculations required by the spoken problems, and answers using numbers and words.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 2",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.6362,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-03",
+   "name": "Spelling",
+   "battery": "ACH",
+   "wj_codes": [
+    "Grw-SG"
+   ],
+   "targets": [
+    "Grw-SG"
+   ],
+   "description": "The examinee listens to spoken words and spells them in writing.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 3",
+   "provenance": "model example selected unedited by the PI",
+   "definition_overlap": 0.607,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-04",
+   "name": "Passage Comprehension",
+   "battery": "ACH",
+   "wj_codes": [
+    "Grw-RC"
+   ],
+   "targets": [
+    "Grw-RC"
+   ],
+   "description": "The examinee views a passage with a missing key word and says a word that makes the passage make sense.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 4",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.6326,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-05",
+   "name": "Calculation",
+   "battery": "ACH",
+   "wj_codes": [
+    "Gq-A3"
+   ],
+   "targets": [
+    "Gq-A3"
+   ],
+   "description": "The examinee is shown numbers, performs calculations, and writes the answers.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 5",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.6438,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-06",
+   "name": "Writing Samples",
+   "battery": "ACH",
+   "wj_codes": [
+    "Grw-WA"
+   ],
+   "targets": [
+    "Grw-WA"
+   ],
+   "description": "The examinee is presented with spoken and written text and responds by writing meaningful sentences suited to a stated purpose.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 6",
+   "provenance": "model example selected unedited by the PI",
+   "definition_overlap": 0.6174,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-07",
+   "name": "Word Attack",
+   "battery": "ACH",
+   "wj_codes": [
+    "Grw-RD",
+    "Ga-PC"
+   ],
+   "targets": [
+    "Grw-RD",
+    "Ga-PC"
+   ],
+   "description": "The examinee sees made-up words with regular pronunciation rules and reads them aloud.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 7",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.6585,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-08",
+   "name": "Oral Reading",
+   "battery": "ACH",
+   "wj_codes": [
+    "Grw-RC",
+    "Grw-V"
+   ],
+   "targets": [
+    "Grw-RC"
+   ],
+   "description": "The examinee is shown written sentences and reads them aloud accurately and with a smooth delivery.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 8",
+   "provenance": "model example selected unedited by the PI",
+   "definition_overlap": 0.6963,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-09",
+   "name": "Sentence Reading Fluency",
+   "battery": "ACH",
+   "wj_codes": [
+    "Grw-RC",
+    "Grw-RS"
+   ],
+   "targets": [
+    "Grw-RC",
+    "Grw-RS"
+   ],
+   "description": "The examinee reads statements rapidly, indicating whether each is true or false.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 9",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.6312,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-10",
+   "name": "Math Facts Fluency",
+   "battery": "ACH",
+   "wj_codes": [
+    "Gq-A3",
+    "Gs-N"
+   ],
+   "targets": [
+    "Gq-A3",
+    "Gs-N"
+   ],
+   "description": "The examinee is shown numbers and rapidly adds, subtracts, and multiplies them, writing the answers.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 10",
+   "provenance": "model example selected unedited by the PI",
+   "definition_overlap": 0.6067,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-11",
+   "name": "Sentence Writing Fluency",
+   "battery": "ACH",
+   "wj_codes": [
+    "Grw-WA",
+    "Grw-WS"
+   ],
+   "targets": [
+    "Grw-WA",
+    "Grw-WS"
+   ],
+   "description": "The examinee is shown pictures with words and rapidly composes simple sentences in writing.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 11",
+   "provenance": "model example selected unedited by the PI",
+   "definition_overlap": 0.5422,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-12",
+   "name": "Reading Recall",
+   "battery": "ACH",
+   "wj_codes": [
+    "Grw-RC",
+    "Glr-MM"
+   ],
+   "targets": [
+    "Grw-RC",
+    "Gl-MM"
+   ],
+   "description": "The examinee reads stories presented as text and gives an oral account of their details.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 12",
+   "provenance": "model example selected unedited by the PI",
+   "definition_overlap": 0.6441,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-13",
+   "name": "Number Matrices",
+   "battery": "ACH",
+   "wj_codes": [
+    "Gf-RQ"
+   ],
+   "targets": [
+    "Gf-RQ"
+   ],
+   "description": "The examinee is shown numbers in a two-dimensional arrangement, determines their pattern, and says missing numbers.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 13",
+   "provenance": "written or edited by the PI",
+   "definition_overlap": 0.6247,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-14",
+   "name": "Editing",
+   "battery": "ACH",
+   "wj_codes": [
+    "Grw-EU"
+   ],
+   "targets": [
+    "Grw-EU"
+   ],
+   "description": "The examinee is shown passages of text, identifies errors, and states the corrections aloud in sentences.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 14",
+   "provenance": "model example selected unedited by the PI",
+   "definition_overlap": 0.5791,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-15",
+   "name": "Word Reading Fluency",
+   "battery": "ACH",
+   "wj_codes": [
+    "Grw-RC",
+    "Grw-RS"
+   ],
+   "targets": [
+    "Grw-RC",
+    "Grw-RS"
+   ],
+   "description": "The examinee rapidly reads rows of words and uses slash marks to indicate the two words in each row that have related meanings.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 15",
+   "provenance": "model example selected unedited by the PI",
+   "definition_overlap": 0.6308,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-16",
+   "name": "Spelling of Sounds",
+   "battery": "ACH",
+   "wj_codes": [
+    "Grw-SG",
+    "Ga-PC"
+   ],
+   "targets": [
+    "Grw-SG",
+    "Ga-PC"
+   ],
+   "description": "The examinee hears letters and words and writes spellings that follow regular English letter patterns.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 16",
+   "provenance": "model example selected unedited by the PI",
+   "definition_overlap": 0.5488,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-17",
+   "name": "Reading Vocabulary",
+   "battery": "ACH",
+   "wj_codes": [
+    "Grw-RC",
+    "Gc-VL"
+   ],
+   "targets": [
+    "Grw-RC",
+    "Gc-VL"
+   ],
+   "description": "The examinee is shown words, reads them, and responds aloud with a suitable word that has the same or opposite meaning.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 17",
+   "provenance": "model example selected unedited by the PI",
+   "definition_overlap": 0.6803,
+   "overlap_flag": false
+  },
+  {
+   "id": "ACH-18",
+   "name": "Science",
+   "battery": "ACH",
+   "wj_codes": [
+    "Gkn-K1",
+    "Gc-K0"
+   ],
+   "targets": [
+    "Gkn-K1",
+    "Gc-K0"
+   ],
+   "description": "The examinee is shown text and pictures, hears science questions, and gives spoken answers in words or sentences.",
+   "source": "LaForte, McGrew & Schrank (2014), Table 13, ACH 18",
+   "provenance": "model example selected unedited by the PI",
+   "definition_overlap": 0.5706,
+   "overlap_flag": false
+  }
+ ],
+ "sha256_of_tests": "7072eb0705d394e23a38e55c986dcc9fb1f24964425cd70fb43f3211b0d0f9b2"
+}

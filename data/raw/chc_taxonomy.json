@@ -1,0 +1,547 @@
+{
+  "meta": {
+    "title": "CHC taxonomy (Schneider & McGrew, 2018)",
+    "source": "Schneider, W. J., & McGrew, K. S. (2018). The Cattell-Horn-Carroll theory of cognitive abilities. In D. P. Flanagan & E. M. McDonough (Eds.), Contemporary intellectual assessment: Theories, tests, and issues (4th ed.). Guilford Press.",
+    "source_text": "Schneider, W. J., & McGrew, K. S. (2017). CHC broad and narrow ability definitions (07-20-17). Institute for Applied Psychometrics. http://www.iapsych.com/chcdefs.pdf -- the authors' abstract of the 2018 chapter. Every name, broad description, and narrow definition in this file is transcribed verbatim from it",
+    "lineage": "Schneider, W. J., & McGrew, K. S. (2013). The Cattell-Horn-Carroll (CHC) model of intelligence v2.2: A visual tour and summary. Institute for Applied Psychometrics.",
+    "scope_note": "Restricted to the 13 broad abilities the 2017 sheet does not mark as tentative (Gf, Gwm, Gl, Gv, Ga, Gc, Gkn, Grw, Gq, Gr, Gs, Gt, Gps). The five broad abilities the sheet's legend marks as \"other tentatively identified broad abilities\" (red: Gp, Go, Gh, Gk, Gei) are excluded with their narrow abilities. Narrow abilities the sheet marks as tentative (italic code: Gf-RE Reasoning speed, Gf-RP Piagetian reasoning) are excluded as well. Abilities the source lists under more than one broad ability are kept once, under the parent where the source gives their full definition: Reading speed (RS) and Writing speed (WS) under Grw, Perceptual speed (P) under Gs; the other listings (Gs-RS, Gs-WS, Gps-WS, and the Gv-P pointer) are omitted, and cross-listing is not represented.  Working memory capacity (Wc) is omitted because the source states it is \"technically not a narrow ability. Result: 13 broad, 71 narrow abilities.",
+    "flags_note": "`major` transcribes the source's typography: bold narrow code = major ability (true), regular = minor (false); where every code under a broad ability is regular (here Gt and Gps), the source means insufficient data to classify, recorded as null.",
+    "code_note": "Codes are as in the source except Musical discrimination and judgment, which the source writes \"U1 U9\" and this file writes U1U9 so that the uid Ga-U1U9 is filesystem-safe.",
+    "stratum_III": {
+      "code": "g",
+      "name": "General intelligence"
+    }
+  },
+  "broad_abilities": [
+    {
+      "code": "Gf",
+      "name": "Fluid reasoning",
+      "stratum": "II",
+      "description": "The use of deliberate and controlled procedures (often requiring focused attention) to solve novel \"on the spot\" problems that cannot be solved by using previously learned habits, schemas, and scripts.",
+      "narrow_abilities": [
+        {
+          "code": "I",
+          "name": "Induction",
+          "definition": "The ability to observe a phenomenon and discover the underlying principles or rules that determine its behavior. This ability is also known as rule inference.",
+          "major": true
+        },
+        {
+          "code": "RG",
+          "name": "General sequential reasoning",
+          "definition": "The ability to reason logically using known premises and principles. This ability is also known as deductive reasoning or rule application.",
+          "major": false
+        },
+        {
+          "code": "RQ",
+          "name": "Quantitative reasoning",
+          "definition": "The ability to reason with quantities, mathematical relations, and operators.",
+          "major": true
+        }
+      ]
+    },
+    {
+      "code": "Gc",
+      "name": "Comprehension-knowledge",
+      "stratum": "II",
+      "description": "The ability to comprehend and communicate culturally-valued knowledge. Gc includes the depth and breadth of both declarative and procedural knowledge and skills such as language, words, and general knowledge developed through experience, learning and acculturation.",
+      "narrow_abilities": [
+        {
+          "code": "LD",
+          "name": "Language Development",
+          "definition": "An intermediate stratum ability to comprehend and communicate using language. The general understanding of spoken language at the level of words, idioms, and sentences.",
+          "major": true
+        },
+        {
+          "code": "VL",
+          "name": "Lexical knowledge",
+          "definition": "The knowledge of the definitions of words and the concepts that underlie them. Vocabulary knowledge.",
+          "major": true
+        },
+        {
+          "code": "K0",
+          "name": "General (verbal) information",
+          "definition": "The breadth and depth of knowledge that one’s culture deems essential, practical, or worthwhile for everyone to know.",
+          "major": true
+        },
+        {
+          "code": "LS",
+          "name": "Listening ability",
+          "definition": "The ability to understand speech. This ability starts with comprehending single words and increases to long complex verbal statements.",
+          "major": false
+        },
+        {
+          "code": "CM",
+          "name": "Communication ability",
+          "definition": "The ability to use speech to communicate effectively.",
+          "major": false
+        },
+        {
+          "code": "MY",
+          "name": "Grammatical sensitivity",
+          "definition": "The awareness of the formal rules of grammar and morphology of words in speech.",
+          "major": false
+        }
+      ]
+    },
+    {
+      "code": "Gkn",
+      "name": "Domain-specific knowledge",
+      "stratum": "II",
+      "description": "The depth, breadth, and mastery of specialized declarative and procedural knowledge (knowledge not all members of a society are expected to have). The Gkn domain is likely to contain more narrow abilities than are currently listed in the CHC model.",
+      "narrow_abilities": [
+        {
+          "code": "K1",
+          "name": "General science information",
+          "definition": "The range of scientific knowledge (e.g., biology, physics, engineering, mechanics, electronics).",
+          "major": true
+        },
+        {
+          "code": "K2",
+          "name": "Knowledge of culture",
+          "definition": "The range of knowledge about the humanities (e.g., philosophy, religion, history, literature, music, and art).",
+          "major": true
+        },
+        {
+          "code": "MK",
+          "name": "Mechanical knowledge",
+          "definition": "Knowledge about the function, terminology, and operation of ordinary tools, machines, and equipment.",
+          "major": false
+        },
+        {
+          "code": "KL",
+          "name": "Foreign language proficiency",
+          "definition": "Similar to language development (see Gc) but in another language.",
+          "major": false
+        },
+        {
+          "code": "KF",
+          "name": "Knowledge of signing",
+          "definition": "The knowledge of finger spelling and signing (e.g., American Sign Language).",
+          "major": false
+        },
+        {
+          "code": "LP",
+          "name": "Skill in lip reading",
+          "definition": "Competence in the ability to understand communication from others by watching the movement of their mouths and expressions.",
+          "major": false
+        }
+      ]
+    },
+    {
+      "code": "Gq",
+      "name": "Quantitative knowledge",
+      "stratum": "II",
+      "description": "The depth and breadth of declarative and procedural knowledge related to mathematics. The Gq domain is likely to contain more narrow abilities than are currently listed in the CHC model.",
+      "narrow_abilities": [
+        {
+          "code": "KM",
+          "name": "Mathematical knowledge",
+          "definition": "The range of general knowledge, not performance of mathematic operations or the solving of problems.",
+          "major": true
+        },
+        {
+          "code": "A3",
+          "name": "Mathematical achievement",
+          "definition": "Measured (tested) mathematics achievement.",
+          "major": true
+        }
+      ]
+    },
+    {
+      "code": "Grw",
+      "name": "Reading and writing",
+      "stratum": "II",
+      "description": "The depth and breadth of declarative and procedural knowledge and skills related to written language.",
+      "narrow_abilities": [
+        {
+          "code": "RC",
+          "name": "Reading comprehension",
+          "definition": "The ability to understand written discourse.",
+          "major": true
+        },
+        {
+          "code": "RD",
+          "name": "Reading decoding",
+          "definition": "The ability to identify words from text.",
+          "major": true
+        },
+        {
+          "code": "RS",
+          "name": "Reading speed",
+          "definition": "The rate at which a person can read connected discourse with full comprehension.",
+          "major": false
+        },
+        {
+          "code": "WA",
+          "name": "Writing ability",
+          "definition": "The ability to use written text to communicate ideas clearly.",
+          "major": true
+        },
+        {
+          "code": "SG",
+          "name": "Spelling ability",
+          "definition": "The ability to spell words.",
+          "major": false
+        },
+        {
+          "code": "WS",
+          "name": "Writing speed",
+          "definition": "The ability to copy or generate text quickly.",
+          "major": false
+        },
+        {
+          "code": "EU",
+          "name": "English usage",
+          "definition": "Knowledge of the mechanics of writing (e.g., capitalization, punctuation, and word usage).",
+          "major": false
+        }
+      ]
+    },
+    {
+      "code": "Gwm",
+      "name": "Short-term working memory",
+      "stratum": "II",
+      "description": "The ability to maintain and manipulate information in active attention. The mind’s mental \"scratchpad\" or \"workbench.\"",
+      "narrow_abilities": [
+        {
+          "code": "Wa",
+          "name": "Auditory short-term storage",
+          "definition": "The ability to encode and maintain verbal information in primary memory.",
+          "major": true
+        },
+        {
+          "code": "Wv",
+          "name": "Visual-spatial short-term storage",
+          "definition": "The ability to encode and maintain visual information in primary memory.",
+          "major": true
+        },
+        {
+          "code": "AC",
+          "name": "Attentional Control",
+          "definition": "The ability to manipulate the spotlight of attention flexibly to focus on task-relevant stimuli and ignore task irrelevant stimuli. Sometimes referred to as spotlight or focal attention, focus, control of attention, executive controlled attention, or executive attention.",
+          "major": true
+        }
+      ]
+    },
+    {
+      "code": "Gl",
+      "name": "Learning efficiency",
+      "stratum": "II",
+      "description": "The ability the ability to learn, store, and consolidate new information over periods of time measured in minutes, hours, days, and years.",
+      "narrow_abilities": [
+        {
+          "code": "MA",
+          "name": "Associative memory",
+          "definition": "The ability to form a link between two previously unrelated stimuli such that the subsequent presentation of one of the stimuli serves to activate the recall of the other stimuli.",
+          "major": true
+        },
+        {
+          "code": "MM",
+          "name": "Meaningful memory",
+          "definition": "The ability to remember narratives and other forms of semantically related information.",
+          "major": true
+        },
+        {
+          "code": "M6",
+          "name": "Free recall memory",
+          "definition": "The ability to recall lists in any order.",
+          "major": false
+        }
+      ]
+    },
+    {
+      "code": "Gr",
+      "name": "Retrieval fluency",
+      "stratum": "II",
+      "description": "The rate and fluency at which individuals can access information stored in long-term memory.",
+      "narrow_abilities": [
+        {
+          "code": "FI",
+          "name": "Ideational fluency",
+          "definition": "The ability to rapidly produce a series of ideas, words, or phrases related to a specific condition or object.",
+          "major": true
+        },
+        {
+          "code": "FE",
+          "name": "Expressional fluency",
+          "definition": "The ability to rapidly think of different ways of expressing an idea.",
+          "major": true
+        },
+        {
+          "code": "FA",
+          "name": "Associational fluency",
+          "definition": "The ability to rapidly produce a series of original or useful ideas related to a particular concept.",
+          "major": false
+        },
+        {
+          "code": "SP",
+          "name": "Sensitivity to problems/alternative solution fluency",
+          "definition": "The ability to rapidly think of several alternative solutions to a practical problem.",
+          "major": false
+        },
+        {
+          "code": "FO",
+          "name": "Originality/creativity",
+          "definition": "The ability to rapidly produce original, clever, and insightful responses (expressions, interpretations) to a given topic, situation, or task.",
+          "major": false
+        },
+        {
+          "code": "LA",
+          "name": "Speed of lexical access",
+          "definition": "The ability to rapidly retrieve words from an individual’s lexicon. Verbal efficiency or automaticity of lexical access. An intermediate stratum level ability.",
+          "major": true
+        },
+        {
+          "code": "NA",
+          "name": "Naming facility",
+          "definition": "The ability to rapidly call objects by their names.",
+          "major": true
+        },
+        {
+          "code": "FW",
+          "name": "Word fluency",
+          "definition": "The ability to rapidly produce words that share a phonological (e.g., fluency of retrieval of words via a phonological cue) or semantic feature (e.g., fluency of retrieval of words via a meaning-based representation).",
+          "major": true
+        },
+        {
+          "code": "FF",
+          "name": "Figural fluency",
+          "definition": "The ability to rapidly draw or sketch as many things (or elaborations) as possible when presented with a nonmeaningful visual stimulus (e.g., a set of unique visual elements).",
+          "major": false
+        },
+        {
+          "code": "FX",
+          "name": "Figural flexibility",
+          "definition": "The ability to rapidly draw different solutions to figural problems.",
+          "major": false
+        }
+      ]
+    },
+    {
+      "code": "Gv",
+      "name": "Visual-spatial processing",
+      "stratum": "II",
+      "description": "The ability to make use of simulated mental imagery to solve problems. Perceiving, discriminating and manipulating images in the \"mind’s eye.\"",
+      "narrow_abilities": [
+        {
+          "code": "Vz",
+          "name": "Visualization",
+          "definition": "The ability to perceive complex visual patterns and mentally simulate how they might look when transformed (e.g., rotated, changed in size, partially obscured, and so forth).",
+          "major": true
+        },
+        {
+          "code": "SR",
+          "name": "Speeded rotation",
+          "definition": "The ability to solve problems quickly using mental rotation of simple images. This ability is similar to Vz but is distinct because as it involves the speed at which mental rotation tasks can be completed.",
+          "major": true
+        },
+        {
+          "code": "IM",
+          "name": "Imagery",
+          "definition": "The ability to voluntarily mentally produce very vivid images of objects, people or events that are not actually present.",
+          "major": true
+        },
+        {
+          "code": "CS",
+          "name": "Closure speed",
+          "definition": "The ability to quickly identify and access a familiar, meaningful visual object stored in long-term memory from incomplete or obscured (e.g., vague, partially obscured, disguised, disconnected) visual cues of the object without knowing in advance what the object is.",
+          "major": false
+        },
+        {
+          "code": "CF",
+          "name": "Flexibility of closure",
+          "definition": "The ability to identify a visual figure or pattern embedded in a complex distracting or disguised visual pattern or array, when one knows in advance what the pattern is.",
+          "major": false
+        },
+        {
+          "code": "MV",
+          "name": "Visual memory",
+          "definition": "The ability to remember complex visual images over short periods of time (less than 30 seconds).",
+          "major": false
+        },
+        {
+          "code": "SS",
+          "name": "Spatial scanning",
+          "definition": "The ability to quickly and accurately survey (visually explore) a wide or complicated spatial field or pattern with multiple obstacles and identify a target configuration or identify a path through the field to a target end point.",
+          "major": false
+        },
+        {
+          "code": "PI",
+          "name": "Serial perceptual integration",
+          "definition": "The ability to recognize an object after only parts of it are shown in rapid succession.",
+          "major": false
+        },
+        {
+          "code": "LE",
+          "name": "Length estimation",
+          "definition": "The ability to visually estimate the length of objects (without using measurement instruments).",
+          "major": false
+        },
+        {
+          "code": "IL",
+          "name": "Perceptual illusions",
+          "definition": "The ability to not be fooled by visual illusions.",
+          "major": false
+        },
+        {
+          "code": "PN",
+          "name": "Perceptual alternations",
+          "definition": "Consistency in the rate of alternating between different visual perceptions.",
+          "major": false
+        }
+      ]
+    },
+    {
+      "code": "Ga",
+      "name": "Auditory processing",
+      "stratum": "II",
+      "description": "The ability to discriminate, remember, reason, and work creatively (on) auditory stimuli, which may consist of tones, environmental sounds, and speech units.",
+      "narrow_abilities": [
+        {
+          "code": "PC",
+          "name": "Phonetic coding",
+          "definition": "The ability to distinctly hear phonemes, blend sounds into words, and segment words into parts, sounds, or phonemes.",
+          "major": true
+        },
+        {
+          "code": "US",
+          "name": "Speech sound discrimination",
+          "definition": "The ability to detect and discriminate differences in speech sounds (other than phonemes) under conditions of little or no distraction or distortion.",
+          "major": false
+        },
+        {
+          "code": "UR",
+          "name": "Resistance to auditory stimulus distortion",
+          "definition": "The ability to hear words or extended speech passages correctly under conditions of distortion or background noise.",
+          "major": false
+        },
+        {
+          "code": "U8",
+          "name": "Maintaining and judging rhythm",
+          "definition": "The ability to recognize and maintain a musical beat.",
+          "major": true
+        },
+        {
+          "code": "UM",
+          "name": "Memory for sound patterns",
+          "definition": "The ability to retain (on a short-term basis) auditory codes such as tones, tonal patterns, or speech sounds.",
+          "major": false
+        },
+        {
+          "code": "U1U9",
+          "name": "Musical discrimination and judgment",
+          "definition": "The ability to discriminate and judge tonal patterns in music with respect to melodic, harmonic, and expressive characteristics (phrasing, tempo, harmonic complexity, intensity variations).",
+          "major": false
+        },
+        {
+          "code": "UP",
+          "name": "Absolute pitch",
+          "definition": "The ability to perfectly identify the pitch of tones.",
+          "major": false
+        },
+        {
+          "code": "UL",
+          "name": "Sound localization",
+          "definition": "The ability to localize heard sounds in space.",
+          "major": false
+        }
+      ]
+    },
+    {
+      "code": "Gs",
+      "name": "Processing speed",
+      "stratum": "II",
+      "description": "The ability to control attention to automatically, quickly and fluently perform relatively simple repetitive cognitive tasks. Attentional fluency or attentional speediness",
+      "narrow_abilities": [
+        {
+          "code": "P",
+          "name": "Perceptual speed",
+          "definition": "An intermediate stratum level ability that can be defined as the speed and fluency with which similarities or differences in visual stimuli (e.g., letters, numbers, patterns, etc.) can be searched and compared in an extended visual field.",
+          "major": true
+        },
+        {
+          "code": "Ps",
+          "name": "Perceptual speed-search",
+          "definition": "The speed and fluency of searching or scanning an extended visual field to locate one or more simple visual patterns",
+          "major": true
+        },
+        {
+          "code": "Pc",
+          "name": "Perceptual speed-compare",
+          "definition": "The speed and fluency of looking up and comparing visual stimuli that are side-by-side or more widely separated in an extended visual field.",
+          "major": true
+        },
+        {
+          "code": "N",
+          "name": "Number facility",
+          "definition": "The speed, fluency and accuracy in manipulating numbers, comparing number patterns, or completing basic arithmetic.",
+          "major": true
+        }
+      ]
+    },
+    {
+      "code": "Gt",
+      "name": "Reaction and decision speed",
+      "stratum": "II",
+      "description": "The speed of making very simple decisions or judgments when items are presented one at a time.",
+      "narrow_abilities": [
+        {
+          "code": "R1",
+          "name": "Simple reaction time",
+          "definition": "Reaction time to the onset of a single visual or auditory stimulus.",
+          "major": null
+        },
+        {
+          "code": "R2",
+          "name": "Choice reaction time",
+          "definition": "Reaction time when a very simple choice must be made.",
+          "major": null
+        },
+        {
+          "code": "IT",
+          "name": "Inspection time",
+          "definition": "The speed at which differences in visual stimuli can be perceived.",
+          "major": null
+        },
+        {
+          "code": "R4",
+          "name": "Semantic processing speed",
+          "definition": "Reaction time when a decision requires some very simple encoding and mental manipulation of the stimulus content.",
+          "major": null
+        },
+        {
+          "code": "R7",
+          "name": "Mental comparison speed",
+          "definition": "The reaction time required when stimuli must be compared for a particular characteristic or attribute.",
+          "major": null
+        }
+      ]
+    },
+    {
+      "code": "Gps",
+      "name": "Psychomotor speed",
+      "stratum": "II",
+      "description": "The ability to perform skilled physical body motor movements (e.g., movement of fingers, hands, legs) with precision, coordination, fluidity or strength.",
+      "narrow_abilities": [
+        {
+          "code": "R3",
+          "name": "Speed of limb movement",
+          "definition": "The speed of arm and leg movement. This speed is measured after the movement is initiated. Accuracy is not important.",
+          "major": null
+        },
+        {
+          "code": "PT",
+          "name": "Speed of articulation",
+          "definition": "The ability to rapidly perform successive articulations with the speech musculature.",
+          "major": null
+        },
+        {
+          "code": "MT",
+          "name": "Movement time",
+          "definition": "The time taken to physically move a body part (e.g., a finger) to make the required response, after a decision or choice has been made, in an elementary cognitive task.",
+          "major": null
+        }
+      ]
+    }
+  ]
+}

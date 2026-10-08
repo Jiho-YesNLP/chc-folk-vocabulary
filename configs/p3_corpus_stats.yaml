@@ -1,0 +1,19 @@
+# Stages 2–3 — corpus funnel and per-ability retention (manuscript corpus statistics tables).
+#
+#   uv run python scripts/p3_corpus_stats.py configs/p3_corpus_stats.yaml
+#
+# The index rows need the *_meta.jsonl files in index_dir, which p2_build_index.py writes on the GPU machine.
+
+index_dir: data/processed/index/track_a
+# Preflight manifests from p2_build_index.py --inspect, merged by subreddit (first wins). The GPU
+# box's manifest covers 34 subreddits; the supplement covers the other 20 (scanned 2026-09-29).
+manifest_paths:
+  - data/processed/index/track_a/manifest.json
+  - data/processed/index/track_a/manifest_supplement.json
+subreddits_config: configs/p2_download_reddit.yaml
+retrieval_dir: data/processed/retrieval/track_a                          # {uid}_raw.jsonl
+annotation_root: data/processed/annotation/track_a                      # {set}/pools/{uid}.jsonl
+annotation_sets: [random, ranked]
+coverage_report_path: data/processed/corpus/track_a_v10/coverage_report.json
+extract_floor: 10              # matches configs/p4_extract.yaml
+out_dir: results/corpus_stats_v10

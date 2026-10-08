@@ -1,0 +1,82 @@
+FROZEN RUBRIC v3. This text is fixed and must not be edited. Any change requires a
+new version number and a fresh run; results from this version are reported as-is.
+
+You are judging DETECTABILITY of individual differences between people. The question
+is one of perceptual resolution: can an ordinary person, using unaided senses, tell
+that one person has more of this capacity than another?
+
+This is NOT a question about language or vocabulary -- ignore entirely whether a word
+exists for the capacity.
+This is NOT a question about how the capacity is studied in laboratories.
+
+You will be shown a description of a human capacity. People differ in it: some have
+more of it, some less.
+
+THE QUESTION. Imagine five people you know well and have been around for years in
+ordinary settings -- home, work, driving, conversation, sport, games, meals. Could you
+tell that they differ on this capacity, and in which direction, using only your own
+senses and no measuring instrument?
+
+Assign exactly one category:
+
+  SPONTANEOUS   Differences surface on their own in unstructured everyday behaviour.
+                You would notice without setting anything up or trying to find out.
+
+  ELICITED      Differences do not surface on their own, but you could bring them out
+                by asking the person to do something -- and improvised materials are
+                enough, and your unaided senses are enough to judge how they did.
+
+  INSTRUMENTED  Unaided senses cannot resolve the difference at all. Detecting it
+                requires sub-second timing, brief or masked presentation, calibrated
+                stimuli, or materials whose difficulty must be deliberately engineered
+                -- or what varies leaves no outward sign and cannot be described.
+
+DECISION RULES. Apply these in order; the first that settles the item wins.
+
+1. LABORATORY PRACTICE IS IRRELEVANT. Ask what is needed to notice a difference AT
+   ALL, not what is needed to measure it accurately. Researchers use instruments for
+   precision even when a crude difference is plainly visible to anyone. That a
+   laboratory would use a stopwatch, a screen, or a standardized form does NOT by
+   itself make an item INSTRUMENTED.
+
+2. RESOLUTION. Unaided senses CAN resolve: differences in duration of roughly a second
+   or more, and gross differences in accuracy, amount, or quality. Unaided senses
+   CANNOT resolve: differences measured in fractions of a second, or differences of a
+   few percent. If the between-person difference exists only at a resolution finer
+   than unaided senses, answer INSTRUMENTED.
+
+   EXCEPTION TO RULE 2 -- VISIBLE OUTCOME. If the difference shows up as a visible
+   success or failure in ordinary action -- catching a dropped glass, dodging,
+   braking in time, swatting an insect, coming in on cue -- then it is resolvable
+   unaided, however small the underlying timing difference. What matters is whether
+   the OUTCOME is visible, not whether the underlying quantity would be measured in
+   milliseconds. In that case the item is SPONTANEOUS or ELICITED, not INSTRUMENTED.
+
+3. MATERIALS. Anything you could improvise on the spot -- a list you write down, a page
+   of text, objects around the room, a question you invent -- counts as ordinary, so
+   the item is at most ELICITED. Only calibrated or standardized stimuli, briefly or
+   masked presentation, or materials whose difficulty must be engineered to work at
+   all, count as INSTRUMENTED.
+
+4. PRIVACY. If what varies is a private experience that produces no outward sign
+   another person could observe, answer INSTRUMENTED -- whether or not equipment is
+   involved.
+
+   EXCEPTION TO RULE 4 -- REPORTABILITY. Description is itself a channel. If people
+   can describe the experience to one another in ordinary conversation, then
+   differences become detectable simply by comparing notes, and the item is
+   SPONTANEOUS or ELICITED. A private experience counts as INSTRUMENTED only when the
+   person cannot articulate it, or would have no occasion to compare it with anyone --
+   for example the rate at which an ambiguous figure spontaneously reverses. Note that
+   people can and do compare inner experiences such as how vivid their mental pictures
+   are, and discover differences that way, without needing any term for the capacity.
+
+Judge each item independently and on its own terms. Do not try to make the categories
+come out balanced, and do not let one item's rating influence the next.
+
+Respond with JSON only:
+{"category": "SPONTANEOUS|ELICITED|INSTRUMENTED",
+ "detection": "what you would observe, or what makes it unresolvable unaided",
+ "rule_applied": "which decision rule number was decisive, or none",
+ "confidence": 1-5,
+ "justification": "one sentence"}

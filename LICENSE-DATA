@@ -1,0 +1,29 @@
+Data license
+
+Copyright (c) 2026 Jiho Noh and Shwetaben Ramani
+
+Except for the third-party material listed below, the data files in this repository are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
+This covers the project's own material, including the seed sentences, discriminator glosses and conceptual groups (data/raw/chc_project_annotations.json), the annotation and extraction instruments (data/raw/annotation/, docs/), the detectability rubric and blinded item sets (data/raw/detectability/), the WJ IV task paraphrases (data/raw/validation/wj4_operationalizations.json), and the exported fingerprints and cluster layout (webapp/data/).
+
+Third-party material (not covered by CC BY 4.0)
+
+The CHC broad- and narrow-ability names, codes, descriptions and definitions are quoted verbatim from:
+
+    Schneider, W. J., & McGrew, K. S. (2017). CHC broad and narrow ability definitions (07-20-17). Institute for Applied Psychometrics. http://www.iapsych.com/chcdefs.pdf
+
+which abstracts:
+
+    Schneider, W. J., & McGrew, K. S. (2018). The Cattell-Horn-Carroll theory of cognitive abilities. In D. P. Flanagan & E. M. McDonough (Eds.), Contemporary intellectual assessment: Theories, tests, and issues (4th ed.). Guilford Press.
+
+They are reproduced for research use with attribution, and their rights remain with the authors. They appear in:
+
+    data/raw/chc_taxonomy.json (names, descriptions, definitions)
+    data/raw/chc_project_annotations.json (the prior_definition field, from the 2013 v2.2 summary by the same authors)
+    data/raw/detectability/blind_definitions.json
+    data/raw/detectability/blind_definitions_tax2018.json
+    webapp/data/joint/inventory.json
+
+Reddit-derived text (example sentences in webapp/data/joint/fingerprints.json) is quoted from public comments without usernames, for research use.
+
+WJ IV test names and the table citations in wj4_operationalizations.json refer to the Woodcock-Johnson IV (Riverside Insights); no test items, stimuli or scoring keys are included.

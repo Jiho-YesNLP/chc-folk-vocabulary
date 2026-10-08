@@ -1,0 +1,68 @@
+[project]
+name = "chc-folk-vocabulary"
+version = "0.1.0"
+description = "Corpus-grounded folk vocabulary for the narrow abilities of the Cattell-Horn-Carroll (CHC) model: retrieval, relevance filtering, descriptor extraction and per-ability fingerprints"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Jiho Noh" }, { name = "Shwetaben Ramani" }]
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0",
+    "numpy",
+    "pyyaml",
+    "tqdm",
+    "requests>=2.34.2",
+    "zstandard>=0.22",
+    "nltk>=3.9",
+    "faiss-cpu>=1.8",
+    "FlagEmbedding>=1.2",
+    "accelerate>=0.26",
+    # transformers >=4.54 references torch.float8_e8m0fnu, which needs torch>=2.7;
+    # this project is pinned to torch 2.6 (cu124), so cap transformers below that.
+    "transformers>=4.45,<4.50",
+    # DeBERTa-v3 tokenizer (relevance classifier backbone) is SentencePiece-based.
+    "sentencepiece>=0.2",
+    "protobuf",
+    # LLM annotation step (scripts/p3_annotate.py); OpenAI-compatible, honors OPENAI_BASE_URL.
+    "openai>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "jupyter",
+    "matplotlib",
+    "ipykernel",
+]
+# Statistics, clustering and figures (p3 stats/detectability, p5, p6 scripts).
+viz = [
+    "scipy",
+    "scikit-learn",
+    "matplotlib",
+    "umap-learn",
+    "adjustText",
+]
+
+[project.urls]
+Repository = "https://github.com/Jiho-YesNLP/chc-folk-vocabulary"
+Explorer = "https://chcfolkvocab.yesnlp.us"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv.sources]
+# CUDA build on Linux; on macOS/other, resolve CPU torch from PyPI
+# so `uv` can build a local env for the viz step (scripts/p5_cluster_viz.py — no GPU).
+torch = [
+    { index = "pytorch-cu124", marker = "sys_platform == 'linux'" },
+]

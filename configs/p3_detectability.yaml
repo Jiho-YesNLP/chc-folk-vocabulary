@@ -1,0 +1,20 @@
+# Stage 3 — detectability of individual differences vs. folk coverage (exploratory, RQ1).
+#
+#   uv run python scripts/p3_detectability_rate.py configs/p3_detectability.yaml --model gpt-4o   # API raters only
+#   uv run python scripts/p3_detectability.py configs/p3_detectability.yaml
+#
+# Needs results/annotation_stats/coverage.csv from p3_annotation_stats.py.
+
+rubric_path: data/raw/detectability/rubric_detectability_v3_FROZEN.txt   # frozen instrument, do not edit
+# 2026-10-06: re-rated on the 71 current taxonomy definitions (seed 772); the 84-item v3 set
+# (blind_definitions.json, blind_key.json, ratings/) is kept for provenance.
+blind_definitions_path: data/raw/detectability/blind_definitions_tax2018.json    # {id, definition} only
+blind_key_path: data/raw/detectability/blind_key_tax2018.json                    # id -> uid, never shown to raters
+ratings_dir: data/processed/detectability/ratings_tax2018                        # v3_{rater}.jsonl
+coverage_path: results/annotation_stats/coverage.csv
+out_dir: results/detectability
+
+# One pair, two providers: GPT-4o (from the 84-item primary pair) and Fable 5.1 (from the 84-item
+# replication pair; Opus 5, GPT-4o's earlier partner, could not be re-run). Neither annotated the corpus.
+rater_pairs:
+  - [v3_gpt-4o, v3_fable-5.1]

@@ -1,0 +1,30 @@
+# Corpus location. On the GPU server this is /data/creativity_xai/.
+# Override per run with --corpus-dir.
+corpus_dir: data/raw/corpus/track_a/reddit/reddit/subreddits25
+output_dir: data/processed/index/track_a/
+manifest_path: data/processed/index/track_a/manifest.json
+
+encoder_model: BAAI/bge-m3
+
+# Device: cuda | mps | cpu | auto. The encoder is pinned to this device (no
+# silent auto-fallback). With require_gpu, the run aborts rather than crawl on CPU.
+device: cuda
+require_gpu: true
+
+overwrite: false    # set true to rebuild existing index files
+
+# Passages per encode batch — tune to GPU VRAM:
+#   8 GB  → 64 | 16 GB → 128 | 24 GB → 256 | 40 GB+ → 512
+batch_size: 32
+
+# ── per-channel sampling ────────────────────────────────────────────────────
+# Cap comments read per subreddit (null = use every non-deleted comment). The manuscript's index
+# was built at 100,000 (recovered from its per-subreddit counts: e.g. r/math indexes 84,990
+# distinct comments, above anything a 50,000 cap allows).
+max_comments_per_source: 100000
+# How to choose which comments to keep when a channel exceeds the cap:
+#   stratified_year — even quota per calendar year (no era dominates)  [default]
+#   uniform         — uniform-random across the whole file
+#   head            — first N comments (fastest; biased to early years)
+sampling: stratified_year
+sampling_seed: 42

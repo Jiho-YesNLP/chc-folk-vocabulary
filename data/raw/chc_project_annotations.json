@@ -1,0 +1,1161 @@
+{
+  "meta": {
+    "title": "CHC folk-vocabulary project annotations",
+    "version": "1.0",
+    "taxonomy": "chc_taxonomy.json",
+    "scope": "Everything this project added to the published CHC taxonomy: per-narrow-ability discriminator glosses and folk seed sentences (keyed by uid = <broad>-<narrow>), and a per-broad-ability conceptual grouping. Joined with the taxonomy by src/data/inventory.py.",
+    "history": "Version 1.0 (2026-09-30) accompanies the revised taxonomy transcribed from Schneider & McGrew (2017/2018). It was carried over from data/raw/chc_ability_inventory.json (file version 2.6, git history), keeping the seeds and discriminators of the 69 abilities that remain. Dropped with the taxonomy revision: Gc-OP, Gkn-A5, Gkn-BC (not in the 2018 revision), the cross-listings Gs-RS, Gs-WS, Gps-WS, and every narrow ability of the tentative broad abilities (Go-OM; Gp-AI, P1, P2, P3, P4, P6, P7, P8).",
+    "seeds_note": "`seeds` holds 10 folk-description seed sentences per narrow ability, the set revised after the 2026-06-10 top-100 retrieval audit: per ability the revision purged the homographs and idioms identified as leak sources, re-anchored on the recommended folk register (lay self-report, deficit poles, niche communities), and carries the discriminator. The original LLM-authored set it replaced (`seeds_v2.5` in the pre-revision inventory) was dropped from this file on 2026-09-30 and survives in git history. Retrieval, classifier training, filtering, and the RQ3 seed condition all read `seeds`; there is no fallback, and the loader refuses an ability without seeds.",
+    "conceptual_group_note": "Project grouping, adapted from Schneider and McGrew's (2012) functional-conceptual framework and not taken verbatim from it. Labels differ from the source (source Memory -> Memory and Efficiency, General Speed -> Speed and Efficiency; Gf, ungrouped in the source, -> Reasoning)."
+  },
+  "broad_abilities": {
+    "Gf": {
+      "conceptual_group": "Reasoning"
+    },
+    "Gc": {
+      "conceptual_group": "Acquired Knowledge"
+    },
+    "Gkn": {
+      "conceptual_group": "Acquired Knowledge"
+    },
+    "Gq": {
+      "conceptual_group": "Acquired Knowledge"
+    },
+    "Grw": {
+      "conceptual_group": "Acquired Knowledge"
+    },
+    "Gwm": {
+      "conceptual_group": "Memory and Efficiency"
+    },
+    "Gl": {
+      "conceptual_group": "Memory and Efficiency"
+    },
+    "Gr": {
+      "conceptual_group": "Memory and Efficiency"
+    },
+    "Gv": {
+      "conceptual_group": "Sensory"
+    },
+    "Ga": {
+      "conceptual_group": "Sensory"
+    },
+    "Gs": {
+      "conceptual_group": "Speed and Efficiency"
+    },
+    "Gt": {
+      "conceptual_group": "Speed and Efficiency"
+    },
+    "Gps": {
+      "conceptual_group": "Speed and Efficiency"
+    }
+  },
+  "narrow_abilities": {
+    "Gf-I": {
+      "discriminator": "vs RG — infers an unknown rule from observed instances, rather than applying a rule already given.",
+      "prior_definition": "The ability to observe a phenomenon and discover the underlying principles or rules that determine its behavior. Also known as rule inference.",
+      "seeds": [
+        "After watching the machine jam a few times, she figured out on her own what kept setting it off.",
+        "He never touches the instructions — he plays a couple of rounds and just works out how the thing must work underneath.",
+        "Give her a handful of examples and she'll tell you what they all secretly have in common.",
+        "Nobody ever explained the system to him, but after a week he'd pieced together exactly how the place really ran.",
+        "She's the type who notices the same odd thing keeps happening every few weeks, then works backward to why.",
+        "After seeing it happen a dozen times, she worked out the pattern behind why it kept turning out that way.",
+        "She studied case after case until she could state the hidden rule that tied them all together.",
+        "He kept quiet track of when the dog got anxious and eventually cracked what was setting it off.",
+        "Shown a run of figures, she works out the rule that decides which number comes next.",
+        "Nobody spelled it out, but he picked up on the unspoken logic in how the team kept making its calls."
+      ]
+    },
+    "Gf-RG": {
+      "discriminator": "vs I — chains given premises step-by-step to a forced conclusion rather than discovering the rule; vs RQ — non-quantitative.",
+      "prior_definition": "The ability to reason logically using known premises and principles. Also known as deductive reasoning or rule application.",
+      "seeds": [
+        "Set out the conditions of a logic puzzle and he steps through them one at a time to the single answer they force.",
+        "She laid the case out link by link until there was no way left to argue with where it ended up.",
+        "Give him 'this is true and that's true,' and he'll tell you exactly what has to follow — no leaps, just steps.",
+        "She noticed the conclusion didn't actually follow from the steps that led up to it.",
+        "Give her a grid of clues about who sat where and she deduces each placement from the ones already pinned down.",
+        "Give him the constraints and he'll work out who must have been where, ruling out the impossible ones one at a time.",
+        "She worked out the seating just from the clues — if A sits here, then B can't, and on down the line.",
+        "He never skips a step; from the given premises he carries it straight through to the one conclusion they allow.",
+        "From the rules of the game alone she worked out the one move that couldn't lose.",
+        "He took the points everyone had already accepted and walked them, step by step, to where they were forced to land."
+      ]
+    },
+    "Gf-RQ": {
+      "discriminator": "vs KM/A3 (Gq) — reasons about quantitative relationships on a novel problem rather than recalling math facts or doing graded computation; vs N (Gs) — reasoning, not calculation speed.",
+      "seeds": [
+        "He reads a word problem and instantly sees which amounts hang on which, before he's touched a single number.",
+        "She can work out in her head roughly how much longer the trip takes if you ease off the speed a little.",
+        "Give him a speed and a distance and he'll get to the time in his head, without writing a thing down.",
+        "She figured out how to share the work fairly by thinking through the proportions, no arithmetic needed.",
+        "Hand him an unfamiliar puzzle about amounts and he works out from scratch how they have to fit together.",
+        "She reasoned that if the tank was draining that fast it couldn't possibly last the trip — and it didn't.",
+        "He can tell you which of two recipes ends up richer once you see how the ingredient ratios stack up.",
+        "From how the readings were spaced he worked out what the rate of change had to be.",
+        "He thinks naturally about how quantities scale — stretch one and what happens to the rest — and it just makes sense to him.",
+        "She worked out how many batches she'd need by thinking the proportions through, not by guessing."
+      ]
+    },
+    "Gc-LD": {
+      "discriminator": "vs VL — broad comprehension of words/idioms/sentences, not single-word definitions; vs LS — not channel-specific to listening.",
+      "prior_definition": "An intermediate stratum ability reflecting the general understanding of spoken language at the level of words, idioms, and sentences. The ability to comprehend and communicate using language.",
+      "seeds": [
+        "Even as a little kid she followed complicated sentences the adults assumed would sail right over her head.",
+        "He takes in the meaning of an idiom or a turn of phrase the first time he hears it, and uses it right back.",
+        "She can follow a long, winding explanation without ever losing the thread of it.",
+        "He picks up what an unfamiliar expression means just from the way it sits in the sentence.",
+        "She's always had an easy command of words — explaining, understanding, making herself plain.",
+        "He caught the wording of the joke instantly while the rest of us were still untangling it.",
+        "She handles the little subtleties of phrasing that trip most people up.",
+        "From early on he could say exactly what he meant and catch exactly what other people meant.",
+        "She grasps the full meaning of a complicated remark, not just the words themselves.",
+        "He follows what a dense, many-claused sentence is really saying without it tripping him up."
+      ]
+    },
+    "Gc-VL": {
+      "discriminator": "vs LD — knowledge of what individual words mean; vs K0 — words, not world facts.",
+      "seeds": [
+        "She always has the exact word for the thing — even the obscure ones nobody else can come up with.",
+        "He can tell you the precise difference in meaning between two near-synonyms most people use interchangeably.",
+        "Her word-stock is enormous; a crossword has never once stumped her on a meaning.",
+        "He knew what that ten-dollar word meant off the top of his head, and used it dead right.",
+        "She collects words the way other people collect stamps, and she knows what every one of them means.",
+        "Whatever the word, he can give you its exact definition without hesitating.",
+        "She reaches for the perfect, specific word while the rest of us settle for 'thing.'",
+        "He came up with that subtle word that captured it exactly — the one no one else could land on.",
+        "Her sense of what words actually mean is razor sharp; she'll flag a misused one on the spot.",
+        "He knows the fine shades of meaning that separate one word from its close cousins."
+      ]
+    },
+    "Gc-K0": {
+      "discriminator": "vs VL — stored common-cultural facts, not word meanings; vs Gkn — common, not specialized knowledge.",
+      "prior_definition": "The breadth and depth of knowledge that one's culture deems essential, practical, and worthwhile for everyone to know.",
+      "seeds": [
+        "She's a walking encyclopedia of the stuff everyone's sort of supposed to know.",
+        "He always knows which country borders which, who wrote what, when things happened.",
+        "Ask her any general-knowledge question and odds are she just knows the answer.",
+        "He's the one you want on your pub-quiz team for all the everyday facts.",
+        "She's got this broad store of common knowledge that makes her unbeatable at trivia.",
+        "He just seems to know things — capitals, inventions, who did what when, all of it.",
+        "She holds onto everyday facts that other people lose track of soon after learning them.",
+        "He can rattle off the basics of almost any common topic that comes up.",
+        "Her general knowledge is wide — a little about nearly everything worth knowing.",
+        "He always knows the well-known facts that surface in ordinary conversation."
+      ]
+    },
+    "Gc-LS": {
+      "discriminator": "vs LD — comprehension specifically by ear; vs UR (Ga) — grasping meaning, not merely hearing a degraded signal.",
+      "prior_definition": "The ability to understand speech. Starts with comprehending single words and increases to long complex verbal statements.",
+      "seeds": [
+        "She can follow a dense lecture by ear alone and come away knowing exactly what was said.",
+        "He catches every point in a long spoken explanation without needing any of it repeated.",
+        "Just from listening, she took in the whole complicated account in one go.",
+        "He understood the rambling story perfectly and could hand back the gist straight away.",
+        "She listens to a fast talker and never loses a single thread of what they're saying.",
+        "He can take in a complicated spoken argument and grasp it without ever seeing it written down.",
+        "She got the whole meaning of the speech just from hearing it once.",
+        "Tell him a long, layered explanation out loud and he's grasped all of it by the end.",
+        "She follows a tangled spoken account effortlessly, however long it runs.",
+        "He hears a complicated verbal plan and immediately understands the whole of it."
+      ]
+    },
+    "Gc-CM": {
+      "discriminator": "",
+      "prior_definition": "Ability to speak in real-life situations (e.g., lecture, group participation) in an adult-like manner.",
+      "seeds": [
+        "Put her in front of a room and she speaks clearly and confidently, like she was born to it.",
+        "He holds his own in any discussion, putting his points across with poise and command.",
+        "She can stand up in a meeting and make her point so it lands with everyone there.",
+        "He talks to a whole crowd as easily as he talks to one person.",
+        "In a group she always gets her ideas across smoothly and brings people around.",
+        "When he speaks to a group, he delivers his point so clearly that the whole room follows him.",
+        "She can carry a conversation with anyone, in any setting, with real poise.",
+        "He addresses the whole room and somehow makes each person feel spoken to directly.",
+        "She speaks up in the real moments — interviews, panels — and always comes off composed.",
+        "He gets up in front of others and handles the moment with complete composure."
+      ]
+    },
+    "Gc-MY": {
+      "discriminator": "vs EU (Grw) — sensitivity to grammatical correctness of spoken language, not written punctuation/usage; vs LD.",
+      "prior_definition": "Knowledge or awareness of the grammatical features of the native language.",
+      "seeds": [
+        "She can tell when a spoken sentence comes out grammatically wrong, even if she couldn't name the rule.",
+        "He notices the instant a verb doesn't agree with its subject, though he's never studied the rule.",
+        "She'll rework a clumsy sentence into the right shape without even thinking about it.",
+        "He's got an ear for grammar — wrong tense, a dangling phrase, he catches it.",
+        "She just feels when the structure of a sentence is right or off.",
+        "She can tell when the wrong word form has been used — a plural where it should be singular, say — just from the grammar.",
+        "He's tuned to the grammatical shape of what people say, catching every little slip.",
+        "She spots the misplaced word in a sentence that everyone else's ear slid right past.",
+        "She can tell a well-formed sentence from a malformed one the moment it's said.",
+        "He catches a grammatical slip in someone's speech that everyone else lets slide."
+      ]
+    },
+    "Gkn-K1": {
+      "discriminator": "vs K0 (Gc) — specialized science knowledge beyond common general information.",
+      "prior_definition": "Range of scientific knowledge (e.g., biology, physics, engineering, mechanics, electronics).",
+      "seeds": [
+        "He always knows the science behind why everyday things happen the way they do.",
+        "She can explain how the body fights off an infection without looking anything up.",
+        "He knows his physics — why things float, fall, freeze, or fly apart.",
+        "She can explain why blood is red or why ice floats, off the top of her head.",
+        "He can tell you what's actually going on inside a thunderstorm.",
+        "He knows how the planets move and what goes on inside a living cell, all from memory.",
+        "He explains the science of cooking, weather, and electricity whenever it comes up.",
+        "She carries a wide store of science in her head and can pull up the right fact on the spot.",
+        "He knew exactly how vaccines work, and why.",
+        "She's the one who knows the real scientific reason, not the myth."
+      ]
+    },
+    "Gkn-MK": {
+      "discriminator": "",
+      "seeds": [
+        "He knows what every tool on the bench is called and what each one's for.",
+        "She can name the carburetor, the alternator, the timing belt, and tell you what each one does.",
+        "He can explain how a combustion engine turns fuel into motion, part by part.",
+        "She knows the proper name for that gadget and exactly how it runs.",
+        "He can tell you why the gearbox does what it does.",
+        "He knew which wrench, which setting, which order, without ever opening a manual.",
+        "She understands how a washing machine's drum and pump actually work, right down to the belt.",
+        "He talks about pistons and valves like he built them himself.",
+        "She knows her way around a workshop — what every tool and part is called and what it's for.",
+        "He can name the parts inside a power drill and tell you the job each one does."
+      ]
+    },
+    "Gkn-KL": {
+      "discriminator": "vs LD (Gc) — language proficiency specifically in a non-native language.",
+      "prior_definition": "Similar to Language Development (LD) but for a foreign language.",
+      "seeds": [
+        "After two years abroad she could follow and speak the local language like she'd grown up with it.",
+        "He drops into the other language and keeps up with fast native talk without missing a thing.",
+        "She reads novels in the foreign language as comfortably as in her own.",
+        "He picked up enough of the language to argue, joke, and haggle in it.",
+        "She knows the idioms and slang of the other tongue, not just the textbook stuff.",
+        "He can hold a deep conversation in his second language without any strain.",
+        "She gets complicated ideas across in the foreign language as well as a local would.",
+        "He thinks and even dreams in the other language now, the way he once did only in his first.",
+        "She handles the fine shades of the foreign language fluently, idioms and all.",
+        "He gets by in the other language so naturally people forget it isn't his first."
+      ]
+    },
+    "Gkn-KF": {
+      "discriminator": "vs LD/LP — communication through a manual sign modality.",
+      "prior_definition": "Knowledge of finger-spelling and signing (e.g., American Sign Language).",
+      "seeds": [
+        "She signs fluently, her hands carrying whole conversations without a pause.",
+        "He can fingerspell a name as fast as someone else would say it out loud.",
+        "She caught the entire signed exchange across the room in one glance.",
+        "He knows the ASL signs even for unusual words and uses them just right.",
+        "She carries on a full, nuanced conversation entirely in sign language.",
+        "He reads other people's signing as easily as the rest of us hear speech.",
+        "She slips between signing and fingerspelling without breaking mid-sentence.",
+        "He's deeply at home in sign language — the grammar, the expression, all of it.",
+        "She can follow a whole signed story and understand all of it.",
+        "He gets complex ideas across in sign language without ever getting stuck."
+      ]
+    },
+    "Gkn-LP": {
+      "discriminator": "vs LS — extracting speech content from lip movements with no audio.",
+      "prior_definition": "Competence in the ability to understand communication from others by watching the movements of their mouths and expressions.",
+      "seeds": [
+        "She can follow what you're saying across a noisy room just by watching your lips.",
+        "He followed the whole conversation with the sound off, reading it from their lips alone.",
+        "Even with the TV muted she can tell what the actors are saying.",
+        "He reads lips so well he barely needs to hear you at all.",
+        "She caught what they were whispering just from the shape of their mouths.",
+        "He can pick the words off people's lips from clear across the street.",
+        "She follows a speaker by the movement of their lips the second the audio cuts.",
+        "She read the words straight off my lips even though she couldn't hear a thing I said.",
+        "With no sound to go on, she works out what's being said purely from how the lips move.",
+        "He pieces speech together from lips alone, no sound required."
+      ]
+    },
+    "Gq-KM": {
+      "discriminator": "vs RQ (Gf) — knows math concepts/terms/rules (knowing-that); vs A3 — knowledge, not demonstrated performance; vs N — knowing, not speed.",
+      "prior_definition": "Range of general knowledge about mathematics.",
+      "seeds": [
+        "He knows his way around the ideas of math — what the terms mean and which rule applies where.",
+        "She can name and explain the formulas long after she last had any use for them.",
+        "He knows which method is the one that fits which kind of problem.",
+        "She's got a broad store of mathematical facts and rules in her head.",
+        "He knows what each mathematical rule is for, even ones he hasn't used in years.",
+        "She can tell you what a mathematical term means in plain words, off the top of her head.",
+        "He knows the names and meanings of the operations and symbols.",
+        "She's got a wide store of math knowledge in her head, the kind you'd want on a quiz team.",
+        "He recalls the rules of algebra without any effort.",
+        "She knows the names and meanings of the rules cold, though she rarely sits down to use them."
+      ]
+    },
+    "Gq-A3": {
+      "discriminator": "vs KM — demonstrated skill at actually doing/solving mathematics correctly (doing), not knowing about it; vs N — accuracy of full procedures, not raw speed.",
+      "prior_definition": "Measured mathematics achievement.",
+      "seeds": [
+        "He aces every math exam, working each problem right from start to finish.",
+        "She doesn't just know the math — she can sit down and actually do it, right, every time.",
+        "He carries out the long multi-step procedures without dropping a step or slipping up.",
+        "She always comes back with the right answer in math class, whatever's on the board.",
+        "He puts the right method to work and lands on the correct answer.",
+        "She works the calculations all the way through and lands on the correct result.",
+        "He gets top marks in maths, getting the working and the answers correct every time.",
+        "She runs the procedures cleanly — the working checks out and so does the answer.",
+        "When the math test comes, she's the one who scores full marks, every procedure done correctly.",
+        "Whatever the math task, she finishes it accurately and in full."
+      ]
+    },
+    "Grw-RC": {
+      "discriminator": "vs RD — understanding the meaning of written text, not decoding; vs LS — written, not spoken.",
+      "prior_definition": "Ability to comprehend connected discourse during reading.",
+      "seeds": [
+        "She reads a dense chapter and comes away understanding every argument in it.",
+        "He grasps exactly what a passage means, not just the words sitting on the page.",
+        "She reads a dense article and can lay out for you exactly what it claims and why.",
+        "He understood the whole story's meaning, including the parts only hinted at.",
+        "She follows a long written explanation and holds onto the full sense of it.",
+        "He reads a complicated passage and comes away with the deeper point, not just the surface.",
+        "She takes in a difficult chapter and understands the whole of it as she reads.",
+        "He can tell you what an article really argued after a single read.",
+        "She pulls the meaning out of dense writing without any effort.",
+        "He reads connected text and sees how all the parts fit together."
+      ]
+    },
+    "Grw-RD": {
+      "discriminator": "vs RC — turning print into spoken words incl. nonwords (decoding), not understanding meaning; vs PC (Ga) — print, not oral phoneme manipulation.",
+      "prior_definition": "Ability to recognize and decode words or pseudowords in reading.",
+      "seeds": [
+        "She can sound out any word on the page, even ones she's never come across, reading it letter by letter.",
+        "He reads unfamiliar names and made-up words aloud without stumbling.",
+        "She works through long, tricky words smoothly, sounding out one letter-chunk at a time.",
+        "He can read a nonsense word aloud correctly just from how it's spelled.",
+        "If he's never seen the word written before, he can't work out what it is — he can't sound it out at all.",
+        "He turns the printed letters into the right sounds automatically.",
+        "He reads familiar words on sight and sounds out the rest with ease.",
+        "She read the unpronounceable street names straight off, no trouble.",
+        "She can read a word she's never seen before, building it up from its letters and sounds.",
+        "He'll read made-up names and nonsense words aloud accurately — his sounding-out is that solid."
+      ]
+    },
+    "Grw-RS": {
+      "discriminator": "vs RC — speed, not depth.",
+      "prior_definition": "Time required to silently read a passage or series of sentences as quickly as possible.",
+      "seeds": [
+        "She reads a page in seconds, moving down it far faster than anyone else.",
+        "He reads several times faster than anyone else around him.",
+        "She'd finished the whole report in the time it took us to get through the summary.",
+        "His eyes fly down the page; he's done before you've even started.",
+        "She can get through a long article in a couple of minutes flat.",
+        "He gets through text at a pace that seems impossible, eyes racing down each page.",
+        "She turns pages so fast you'd swear she was only skimming.",
+        "He gets through the assigned chapters in a fraction of the time.",
+        "She reads silently at a flat-out pace and never slows down.",
+        "He blew through the dense manual far quicker than the rest of us."
+      ]
+    },
+    "Grw-WA": {
+      "discriminator": "vs EU — quality of written expression (clarity, organization, structure), not mechanics; vs WS — quality, not speed.",
+      "prior_definition": "Ability to write with clarity of thought, organization, and good sentence structure. (Not clearly defined by existing research.)",
+      "seeds": [
+        "She writes with such clarity that complicated ideas come out feeling simple.",
+        "He sets a piece up so every paragraph flows logically into the next.",
+        "Her prose is well-organized and a pleasure to read, each thought set out in order.",
+        "He can take a tangle of half-formed thoughts and lay them out in clear prose.",
+        "She arranges her writing so the point builds naturally from start to finish.",
+        "His writing is so well-organized you never once lose the thread.",
+        "She gets herself across on the page with real clarity and order.",
+        "He crafts sentences that are tight, clear, and well-made.",
+        "Her written work is a model of organization and solid structure.",
+        "He writes the way a good architect builds — everything set in its place."
+      ]
+    },
+    "Grw-SG": {
+      "discriminator": "vs EU — producing correct spelling specifically, not broader punctuation/usage.",
+      "prior_definition": "Ability to spell. (Not clearly defined by existing research.)",
+      "seeds": [
+        "She can spell anything — the long ones, the weird ones, all of them right.",
+        "He spells so phonetically that he misspells almost everything — 'enuff,' 'becuase,' the lot.",
+        "She spells the trickiest words without a flicker of doubt.",
+        "Words like 'loose' and 'lose' she can never spell right, no matter how often she's corrected.",
+        "She never makes a spelling slip, even in a rushed text.",
+        "He spells unfamiliar words right, no autocorrect needed.",
+        "She's a flawless speller — the one you ask when you're not sure.",
+        "He nails the spelling of words most people get wrong.",
+        "She can rattle off the correct spelling of nearly anything you throw at her.",
+        "His spelling is spotless, no autocorrect required."
+      ]
+    },
+    "Grw-WS": {
+      "discriminator": "vs WA — speed of producing/copying text, not quality.",
+      "seeds": [
+        "She fills a page with her own writing in the time it takes most people to begin.",
+        "He gets his own thoughts down on paper faster than the rest of us can think them.",
+        "Her pen flies as her own words pour straight onto the page.",
+        "He can write out a long passage of his own in a fraction of the usual time.",
+        "She gets her own ideas down in writing at remarkable speed.",
+        "He produces a full page of his own writing before anyone else has a paragraph.",
+        "She writes her own text so fast her hand barely keeps up.",
+        "He gets the whole thing written out as fast as the words come to him.",
+        "She turns out her own written work quickly without ever slowing.",
+        "His writing speed lets him finish a written exam, in his own words, with time to spare."
+      ]
+    },
+    "Grw-EU": {
+      "discriminator": "vs SG — written mechanics (punctuation, capitalization, usage), broader than spelling; vs MY — written conventions, not spoken grammar.",
+      "prior_definition": "Knowledge of writing in the English language with respect to capitalization, punctuation, usage, and spelling.",
+      "seeds": [
+        "She knows exactly where every comma and capital belongs.",
+        "He never misplaces an apostrophe or a semicolon.",
+        "She's the one who catches the punctuation slip-ups everyone else misses.",
+        "He knows the usage rules cold — 'its' versus 'it's,' every single time.",
+        "She lays out her writing with flawless punctuation and capitals.",
+        "He knows when to reach for a colon and when for a dash without thinking.",
+        "She's the one who quietly fixes everyone's commas and apostrophes.",
+        "He punctuates and capitalizes everything textbook-correct, no slips.",
+        "She never gets the punctuation or capitalization of a sentence wrong on the page.",
+        "His commas, apostrophes, and capitals come out right every time."
+      ]
+    },
+    "Gwm-Wa": {
+      "discriminator": "vs MA/MM (Gl) — briefly holding heard/verbal info just long enough to use it (decays fast), not long-term learning; vs AC — storage, not focus control.",
+      "seeds": [
+        "She can hold a phone number in her head just long enough to dial it after hearing it once.",
+        "He repeats back a string of names the second after you've said them, in order.",
+        "She kept the whole spoken address in mind just until she could grab a pen.",
+        "He can echo a long sentence back word for word right after he hears it.",
+        "She held the items in her head the whole walk out to the car, then they were gone.",
+        "He keeps a string of digits read out to him just long enough to use them, then they fade.",
+        "She can hold several spoken instructions in mind at once, for a moment anyway.",
+        "He kept the spoken directions in his head right up until he reached the turn.",
+        "She repeated the order back perfectly, seconds after hearing it.",
+        "He parks spoken numbers in his mind for exactly as long as he needs them, then they slip away."
+      ]
+    },
+    "Gwm-Wv": {
+      "discriminator": "vs MV (Gv) — holding a visual layout in active mind to use right now (working memory), not later recall; vs Wa — visual, not verbal.",
+      "seeds": [
+        "She took in the arrangement at a glance and held it in mind just long enough to copy it.",
+        "He can keep where each thing sat in his mind's eye for a moment after looking away.",
+        "She held the shape of the diagram in mind only long enough to redraw it on the spot.",
+        "He remembered exactly where everything was for the few seconds it took to act on it.",
+        "She held the pattern in her mind's eye just long enough to reproduce it, then it faded.",
+        "He keeps a glimpsed scene in his head for the instant right after looking away.",
+        "She took in the whole layout in one look and set it down again moments later.",
+        "He held the picture in mind just long enough to use it, and no longer.",
+        "She kept the grid of colors in her head until she'd finished copying it, then it was gone.",
+        "He holds a visual layout in mind for those few crucial seconds and then acts on it."
+      ]
+    },
+    "Gwm-AC": {
+      "discriminator": "vs Wa/Wv — controlling/sustaining focus and resisting distraction, not capacity to hold items.",
+      "seeds": [
+        "She keeps her concentration trained on her work and doesn't let it wander.",
+        "He holds his focus on the one thing that matters and lets the rest go by.",
+        "She doesn't get pulled off track by everything going on around her.",
+        "He can hold his concentration steady even when there's a lot going on.",
+        "She zeroes in on the one detail that counts and keeps her mind off the rest.",
+        "He keeps his mind exactly where he wants it, with no drifting.",
+        "She works straight through without letting her attention slip.",
+        "He shifts his focus on purpose and never loses the thread doing it.",
+        "After years of his mind racing, he's finally able to hold his attention on one task at a time.",
+        "He keeps his concentration trained right where it's needed and pulls it back the moment it strays."
+      ]
+    },
+    "Gl-MA": {
+      "discriminator": "vs MM — forming links between arbitrarily paired items so one cues the other; vs M6 — paired, not free single items; vs Gr — storage, not retrieval rate.",
+      "seeds": [
+        "She meets you once and your name and face stay paired in her memory for good.",
+        "He ties a new word to its meaning the first time and the link never comes loose.",
+        "She hears two things together once and afterward each one brings the other to mind.",
+        "He's the one who always remembers which name goes with which face.",
+        "She picks up arbitrary pairings — this stands for that — after a single run-through.",
+        "He connects a person to where he met them, and one always calls up the other.",
+        "Once two unrelated things are paired in her memory, recalling one pulls up the other.",
+        "He had all the capital-and-country pairs locked together after one pass.",
+        "She links a face to a name on first meeting and the pairing simply sticks.",
+        "He only needs to see a name beside a face once to bring the pair back later."
+      ]
+    },
+    "Gl-MM": {
+      "discriminator": "vs MA — retaining connected/meaningful material (stories, related facts); vs M6 — meaningful, not unrelated.",
+      "seeds": [
+        "She can retell a whole story she heard last week, beat for beat.",
+        "He remembers the plot of a book in detail long after he's read it.",
+        "She holds the meaning of a lecture in mind months after sitting through it.",
+        "He can recall the thread of a complicated story and lay it out from memory.",
+        "She remembers both the gist and the details of long conversations.",
+        "He can summarize a complicated story from memory years down the line.",
+        "She takes in meaningful material and keeps the whole storyline straight.",
+        "He remembers the thread of the argument long after the meeting's over.",
+        "She keeps whole storylines intact in her memory.",
+        "He recalls the substance of what he learned, not just the odd fragment."
+      ]
+    },
+    "Gl-M6": {
+      "discriminator": "vs MA/MM — recalling a large set of unrelated items in any order; vs Gr — what is retained, not retrieval speed.",
+      "prior_definition": "Ability to recall as many unrelated items as possible, in any order, after a large collection of items is presented.",
+      "seeds": [
+        "Show her a tray of unrelated objects and she'll name most of them back, in any order.",
+        "He can reel off two dozen unrelated things he glanced at a minute ago.",
+        "She remembers a jumble of random words better than anyone after one look.",
+        "He brought back nearly every item from the tray, in no particular order.",
+        "She can name back a whole pile of unconnected things from memory.",
+        "He holds onto dozens of random, unrelated items with no trouble.",
+        "She rattled off the scattered words she'd been shown, nearly all of them.",
+        "He remembers loads of unrelated items after seeing them just once.",
+        "She can bring a whole batch of disconnected things back from memory, order be damned.",
+        "He recalls dozens of disconnected things he was shown earlier."
+      ]
+    },
+    "Gr-FI": {
+      "discriminator": "vs FO — quantity/volume of ideas, not cleverness; vs FA — sheer output, not relatedness to a concept.",
+      "prior_definition": "The ability to rapidly produce a series of ideas, words, or phrases related to a specific condition or object. Quantity, not quality, is emphasized.",
+      "seeds": [
+        "Give him a single topic and he'll rattle off twenty ideas before you've finished explaining what you need.",
+        "She's the kind who never runs dry in a brainstorm — the suggestions just keep coming, one after another.",
+        "Most of us stalled after two or three, but she kept listing more, like a tap she could just turn on.",
+        "Whenever we hit a wall, he can throw out a dozen possibilities in a minute without breaking a sweat.",
+        "She turns out option after option, far more than the task could ever need.",
+        "He doesn't stop to weigh whether any of them are any good — he just keeps throwing more out there until the page is full.",
+        "Once she got going, the names we could give it kept piling up, way more than we could ever choose between.",
+        "Whatever the prompt, the ideas keep pouring out of him, one separate notion after another.",
+        "In the meeting she tossed out option after option, and by the end most of the thirty on the list were hers.",
+        "Ask the class for examples and he alone will fill the whole board before anyone else's hand is up."
+      ]
+    },
+    "Gr-FE": {
+      "discriminator": "vs FI — many rewordings of the same idea, not different ideas; vs FW — phrasings, not single words.",
+      "seeds": [
+        "She can put the very same point into ten different wordings without pausing.",
+        "He instantly rephrases a sentence into a dozen alternative wordings.",
+        "Ask her to put it another way and she rattles off several fresh phrasings on the spot.",
+        "He reworks the same point into fresh phrasings without effort.",
+        "She finds new ways to word an idea as fast as you can ask for them.",
+        "He can recast a single thought into one new phrasing after another, quickly.",
+        "She rattles off alternative wordings until one of them lands just right.",
+        "He turns out rephrasings of a single thought at remarkable speed.",
+        "She can dress the same idea up in a dozen different sentences in seconds.",
+        "He never says it just the one way — he produces variations on it instantly."
+      ]
+    },
+    "Gr-FA": {
+      "discriminator": "vs FI — ideas related/useful to a given concept (relatedness), not raw volume; vs FO — fittingness, not novelty.",
+      "seeds": [
+        "Give her one concept and she'll reel off a dozen related ideas in a minute, every one tied to it.",
+        "He starts from a single idea and quickly branches out into a dozen apt, connected ones.",
+        "She fires out one fitting tie-in after another, all closely related to where she started.",
+        "From one central idea she produces a rapid string of related thoughts, each meaningfully connected to it.",
+        "She comes up with relevant, on-point tie-ins to a concept in quick succession.",
+        "He can produce a steady, fast run of connected ideas from any given topic, all genuinely related.",
+        "She spins a single notion out into a dozen related, worthwhile ideas in no time.",
+        "He extends a concept outward into a series of apt, fitting links, quickly and without pause.",
+        "She rattles off a rush of ideas in quick succession that all genuinely tie back to where she began.",
+        "He riffs one idea into a whole network of related, useful ones in no time."
+      ]
+    },
+    "Gr-SP": {
+      "discriminator": "vs FI — many practical solutions to a real-world problem; vs FX — verbal-practical, not figural; vs FO — solutions, not originality per se.",
+      "prior_definition": "The ability to rapidly think of a number of solutions to a particular practical problem.",
+      "seeds": [
+        "When something breaks, she instantly reels off five different fixes we could try.",
+        "He spots a practical snag and rapidly offers a handful of workarounds.",
+        "She comes up with several fixes before we've even finished describing what went wrong.",
+        "Faced with a jam, he quickly turns out one workable fix after another.",
+        "She rattles off practical options the moment something goes wrong.",
+        "He produces a whole run of ways out of a fix almost on the spot.",
+        "She always has three different fixes ready to go.",
+        "He sees the snag and floods us with things to try, fast.",
+        "She turns out workaround after workaround for any practical hitch.",
+        "He quickly thinks up several different ways to get around the everyday problem."
+      ]
+    },
+    "Gr-FO": {
+      "discriminator": "vs FI — novelty/cleverness/insight of responses (quality), not quantity; vs FA — originality, not mere relatedness.",
+      "prior_definition": "Ability to rapidly produce original, clever, and insightful responses (expressions, interpretations) to a given topic, situation, or task.",
+      "seeds": [
+        "She comes up with answers nobody else would ever have thought of, and fast.",
+        "His ideas are so out-of-nowhere they make everyone else's look obvious.",
+        "She put a clever, unexpected spin on the problem in a matter of seconds.",
+        "He produces genuinely fresh, surprising takes the moment you hand him a prompt.",
+        "Her solutions are always the surprising, inventive ones.",
+        "He thinks of the angle nobody saw coming, and he gets there quickly.",
+        "She delivers insightful, out-of-nowhere responses right on the spot.",
+        "His clever ideas seem to come from nowhere and somehow fit perfectly.",
+        "She's the one with the strikingly original idea, every single time.",
+        "He fires back a fresh, ingenious twist faster than we can even react."
+      ]
+    },
+    "Gr-NA": {
+      "discriminator": "vs FW — speed of retrieving the single correct name of a seen object; vs VL — retrieval speed, not knowing the word.",
+      "seeds": [
+        "She names whatever she's looking at the instant she sees it, never hunting for the word.",
+        "He comes out with the name of an object the moment he lays eyes on it.",
+        "She can call out what each picture is faster than you can point at them.",
+        "When he sees something familiar, the word for it is just there — no blanking, no searching.",
+        "She never gropes for what something's called; the name comes straight away.",
+        "Half the time the name of a common object just won't come to her — she knows what it is but can't get the word out.",
+        "She comes up with what to call things almost before she's looked.",
+        "He can name every object in the picture quicker than anyone else.",
+        "She supplies the word for it without a beat of hesitation.",
+        "He names things on sight, the word always right there."
+      ]
+    },
+    "Gr-FW": {
+      "discriminator": "vs NA — rapidly retrieving many words fitting a form/category cue; vs FI — words, not ideas.",
+      "seeds": [
+        "Ask her for words starting with S and she'll reel off thirty in a minute.",
+        "He can name animals one after another faster than you can write them down.",
+        "Give her a category and she names example after example without slowing.",
+        "Ask him for words that fit a letter and they come in a rapid stream.",
+        "She can name things in a category — fruits, tools, whatever — in a rapid stream.",
+        "He fires off word after word that fits the category, barely pausing for breath.",
+        "She comes up with words that start with the same letter at a remarkable clip.",
+        "He turns out long runs of words on a theme in seconds.",
+        "She names matching words so quickly you lose track of how many.",
+        "He comes up with words fitting the cue quicker than anyone in the room."
+      ]
+    },
+    "Gr-FF": {
+      "discriminator": "vs FX — producing many figural drawings (quantity); vs FI — drawn, not verbal.",
+      "seeds": [
+        "Give her a few squiggles and she'll turn them into twenty different little drawings in minutes.",
+        "He can take a blank circle and rapidly turn it into dozens of different pictures.",
+        "She fills a page with quick doodles built off a single meaningless shape.",
+        "From one set of dots he doodled picture after picture, fast.",
+        "She turns out a flood of little drawings from a single meaningless squiggle.",
+        "He rapidly works the same blob into a hundred different doodles.",
+        "She sketches endless variations off a plain shape in no time at all.",
+        "He churns out drawings from a meaningless mark quicker than anyone.",
+        "She can take one squiggle and rapidly build it into many different pictures.",
+        "He fills the sheet with rapid doodles all sprung from a single nonsense shape."
+      ]
+    },
+    "Gr-FX": {
+      "discriminator": "vs FF — different/varied drawn solutions to a figure problem (flexibility), not raw count; vs SP — figural, not verbal-practical.",
+      "seeds": [
+        "When a shape puzzle stumps everyone, she sketches out several completely different visual ways to solve it.",
+        "He quickly redraws the diagram in entirely new configurations until one of them works.",
+        "She doesn't get stuck on one drawn solution; she rapidly tries radically different shapes.",
+        "He reworks a figure problem into several different drawings, fast.",
+        "She comes up with several distinct drawn solutions where everyone else sees only one.",
+        "He flips the layout around into fresh visual arrangements in seconds.",
+        "She rapidly produces different drawn solutions to the very same shape puzzle.",
+        "He keeps re-sketching it in new shapes until the visual problem finally cracks.",
+        "She switches between altogether different drawn approaches with surprising speed.",
+        "He finds several different drawn solutions quicker than anyone else can find one."
+      ]
+    },
+    "Gv-Vz": {
+      "discriminator": "vs SR — mentally transforming/simulating complex forms, complexity over speed.",
+      "seeds": [
+        "She runs the whole thing through in her head and sees how the pieces will fit before she starts.",
+        "He sees the flat-pack diagram and builds the whole thing in his mind before he starts.",
+        "She can picture how a flat shape will look once it's folded up into a box.",
+        "He pictures the part turned around in his mind and knows how it'll sit before he tries it.",
+        "She mentally folds and turns the shape to work out what it becomes.",
+        "He can see the finished structure in his head from nothing but the plan in front of him.",
+        "He sees in his mind's eye how all the parts come together once assembled.",
+        "She pictures the hidden back of the object by rotating it in her mind.",
+        "He mentally rotates the piece to work out whether it lines up.",
+        "He runs the whole fold-and-rotate in his head and arrives at the answer."
+      ]
+    },
+    "Gv-SR": {
+      "discriminator": "vs Vz — fast mental rotation of simple shapes to match, speed over complexity.",
+      "prior_definition": "The ability to solve problems quickly by using mental rotation of simple images.",
+      "seeds": [
+        "She can tell at a glance whether two tilted shapes are the same one turned around.",
+        "He turns the figure over in his head in an instant to see if it matches.",
+        "She knows right away whether the second shape is the same one flipped, or a different one.",
+        "He matches turned-around shapes faster than you can turn the page.",
+        "She flips the little figure around in her mind in a split second.",
+        "He sees instantly that the turned symbol is the same one.",
+        "She can quickly turn a shape over in her head to check whether it fits.",
+        "I can turn a shape around in my head in a flash and tell whether it's the same one.",
+        "She turns simple shapes around in her head at lightning speed.",
+        "He decides whether two shapes are the same once one is turned, in an instant."
+      ]
+    },
+    "Gv-IM": {
+      "discriminator": "vs MV — generating vivid mental imagery of absent things at will (vividness); vs Vz — producing images, not transforming given ones.",
+      "seeds": [
+        "She can conjure a scene in her mind so vivid it's almost like watching a film.",
+        "He pictures absent people and places in striking, lifelike detail.",
+        "She calls up an image of the beach and practically feels the sun on her.",
+        "He can summon a vivid mental picture of just about anything on command.",
+        "She brings the whole scene up in her head, bright and complete, though it's not in front of her.",
+        "He imagines the object so clearly it's as if it's sitting right in front of him.",
+        "She produces vivid imaginary scenes whenever she wants to.",
+        "He can call a face up in full color in his mind whenever he chooses.",
+        "When she shuts her eyes she sees nothing at all — no picture, just black.",
+        "To him, people who can run a whole movie in their heads sounds like magic — he's never pictured a thing."
+      ]
+    },
+    "Gv-CS": {
+      "discriminator": "vs CF — recognizing the obscured whole without knowing in advance what it is.",
+      "prior_definition": "Ability to quickly combine disconnected, vague, or partially obscured visual stimuli or patterns into a meaningful whole, without knowing in advance what the pattern is.",
+      "seeds": [
+        "She can make out the hidden picture in a blurry, broken-up image before anyone else.",
+        "He recognizes the object in the smudged, incomplete drawing in a heartbeat.",
+        "She spots the face in the blotchy photo when the rest of us see nothing at all.",
+        "He instantly knows what the patchy, fragmented image is.",
+        "She catches the shape hidden in a degraded, half-formed picture.",
+        "He makes out the word in the badly blurred text at a glance.",
+        "The hidden pictures that pop out for everyone else stay just a blur to him until he really concentrates.",
+        "He sees the whole from a few vague smears almost at once.",
+        "She makes sense of the obscured, blotchy image faster than seems possible.",
+        "He picks the hidden form out of the visual mess right away."
+      ]
+    },
+    "Gv-CF": {
+      "discriminator": "vs CS — finding a specified/known figure embedded in clutter; vs Ps (Gs) — known target in a complex array.",
+      "prior_definition": "Ability to find, apprehend, and identify a visual figure or pattern embedded in a complex visual array, when knowing in advance what the pattern is.",
+      "seeds": [
+        "She can find the one hidden shape she's been told to look for in a busy picture in seconds.",
+        "He spots the camouflaged figure everyone else stares straight past.",
+        "She locates the specific shape buried in the cluttered design instantly.",
+        "He picks out the particular letter hidden in the jumble, fast.",
+        "She finds the Where's-Waldo character before the page is even flat on the table.",
+        "He isolates the shape he's hunting for from a crowded background with ease.",
+        "She zeroes right in on the figure she's looking for, hidden in the chaos.",
+        "He spots the known shape tucked inside the busy picture quickly.",
+        "She can pull the shape she wants out of a confusing, cluttered picture at a glance.",
+        "He finds the figure he's after no matter how well it's hidden."
+      ]
+    },
+    "Gv-MV": {
+      "discriminator": "vs Wv (Gwm) — remembering/recalling a complex image afterward, not just holding it to act now; vs Vz — recall, not transformation.",
+      "seeds": [
+        "She glanced at the diagram once and a moment later could redraw it exactly.",
+        "He remembers exactly what the page looked like for a good while after one look.",
+        "She can recall the precise layout of a picture she saw just seconds ago.",
+        "He held the complicated image in mind and reproduced it accurately a short time later.",
+        "A minute after seeing it, she can still picture the scene in vivid detail.",
+        "He can recall where every object sat in the picture he glanced at moments ago.",
+        "She keeps a sharp snapshot of what she just saw for a little while afterward.",
+        "He remembered the intricate diagram down to the small details a few minutes on.",
+        "She can picture the page exactly as it looked when she glanced at it a moment before.",
+        "Shown a scene briefly, he can call it back in full just afterward."
+      ]
+    },
+    "Gv-SS": {
+      "discriminator": "vs Ps (Gs) — visually tracing a path through a spatial field with obstacles, not just locating targets.",
+      "seeds": [
+        "She traces the right way through a tangled maze almost instantly, eyes following the line.",
+        "He scans a crowded diagram and picks out the clear way through in seconds.",
+        "She spots the open lane through the crowd before anyone's even moved.",
+        "He quickly surveys the cluttered field and picks out the clear way across.",
+        "She finds the way out on a complicated floor plan at a glance.",
+        "He can scan a maze of crisscrossing lines and trace the one that connects, fast.",
+        "She works her eyes around all the clutter to the opening immediately.",
+        "He surveys the whole busy layout and traces the way through quickly.",
+        "She traces a way through the cluttered diagram without hesitating.",
+        "He scans the visual maze and follows the connecting line in moments."
+      ]
+    },
+    "Gv-PI": {
+      "discriminator": "vs CS — integrating serially/successively presented fragments into a whole; vs MV — integration, not recall.",
+      "prior_definition": "Ability to apprehend and identify a pictorial or visual pattern when parts of the pattern are presented rapidly in serial or successive order.",
+      "seeds": [
+        "Even when the picture is uncovered a little at a time, she calls out what it is before it's whole.",
+        "He pieces the image together as the fragments flash by one after another.",
+        "She recognizes the whole when it's shown to her one thin slice at a time.",
+        "He identifies the object as it's uncovered piece by piece in quick succession.",
+        "She assembles the whole picture in her mind as the parts flash past in turn.",
+        "He knew what it was from the strip-by-strip flashes alone.",
+        "She pulls the parts shown one-after-another into the whole without effort.",
+        "He recognizes the figure even as it streams past in successive pieces.",
+        "She catches the picture from the fast run of glimpses, each adding to the last.",
+        "He builds the rapid, one-at-a-time fragments into a single clear image right away."
+      ]
+    },
+    "Gv-LE": {
+      "discriminator": "judging length/distance visually without instruments.",
+      "prior_definition": "Ability to accurately estimate or compare visual lengths and distances without using measurement instruments.",
+      "seeds": [
+        "She can eyeball two lines and tell you which is longer, dead on.",
+        "He guesses the room's width to within an inch without ever reaching for a tape.",
+        "She judges how far away things are by eye better than most do with a ruler.",
+        "He can tell just by looking whether the couch will clear the doorway.",
+        "She estimates how far off things are with uncanny accuracy.",
+        "He can tell which of two near-equal lengths is the longer, by eye alone.",
+        "She judged the width of the gap perfectly without measuring a thing.",
+        "He eyeballs distances and lengths and is almost never off.",
+        "He hasn't got much sense of distance — ask him how far off something is and he's usually way out.",
+        "He estimates the distance clear across the yard and nails it."
+      ]
+    },
+    "Gv-IL": {
+      "discriminator": "resisting being fooled by a deceptive figure — accuracy despite an illusion.",
+      "prior_definition": "Ability to resist being affected by perceptual illusions involving geometric figures.",
+      "seeds": [
+        "Those optical-illusion pictures everyone passes around never get her — she sees the true sizes right off.",
+        "When two lines are drawn to look like different lengths, he just sees that they're actually the same.",
+        "She isn't taken in by the trick pictures where the shapes seem to bend; she sees them straight.",
+        "He looks at the famous trick image and the distortion simply doesn't grab him.",
+        "She can tell the two tabletops are identical even though the drawing screams otherwise.",
+        "The arrows-on-the-ends trick that fools everyone else doesn't fool him at all.",
+        "She sees past the visual gimmick to the true shape underneath.",
+        "He stays dead accurate on the pictures built specifically to mislead the viewer.",
+        "Those 'which circle is bigger' tricks never catch her — she just knows they're equal.",
+        "He's oddly hard to fool with these tricks; the setup just doesn't take him in."
+      ]
+    },
+    "Gv-PN": {
+      "discriminator": "vs IL — the rate/steadiness of switching between the two readings of a bistable image, not resisting an illusion.",
+      "seeds": [
+        "With that spinning-dancer image she can make it flip direction back and forth, steadily, whenever she likes.",
+        "He sees the duck, then the rabbit, then the duck again, switching at an even, regular pace.",
+        "She can keep that wireframe-box drawing popping inside-out at a constant rhythm, front face to back and over again.",
+        "For him the duck-rabbit picture keeps swapping between its two versions at a steady tempo.",
+        "She toggles the old-woman/young-woman picture back and forth without it sticking on either one.",
+        "He can flip the two-way figure between its versions over and over at a reliable rate.",
+        "The picture keeps reversing for her at an even clip, one reading and then the other.",
+        "He switches between the two ways of seeing the shape smoothly and consistently.",
+        "She makes the spinning-dancer figure alternate at a steady, predictable pace.",
+        "For him the duck-rabbit flips between its two versions over and over, regular as you like."
+      ]
+    },
+    "Ga-PC": {
+      "discriminator": "vs RD (Grw) — manipulating the sounds in spoken words (blend/segment phonemes), oral not print; vs US — manipulating, not just discriminating.",
+      "prior_definition": "The ability to distinctly hear phonemes, blend sounds into words, and segment words into parts, sounds, or phonemes. Also referred to as phonological processing, phonological awareness, and phonemic awareness.",
+      "seeds": [
+        "She can break any word into its separate sounds without dropping one.",
+        "He blends the separate sounds into the whole word instantly in his head.",
+        "She hears that a word starts with two sounds run together and can pull them apart.",
+        "He can tell you what the word sounds like with the first sound taken off.",
+        "She splits words into their individual sounds without effort.",
+        "Say a word with the sounds broken up, like c-a-t, and he puts them together to say 'cat.'",
+        "She can tap out every separate sound in a long word, all correct.",
+        "He hears each individual sound inside a spoken word clearly.",
+        "She puts sounds together into words and breaks words back down into sounds with ease.",
+        "He can pull out the middle sound of a word on the first try."
+      ]
+    },
+    "Ga-US": {
+      "discriminator": "vs PC — telling apart similar speech sounds (perception of difference) under clean conditions; vs UR — clean, not distorted.",
+      "seeds": [
+        "She can hear the tiny difference between two very similar spoken sounds.",
+        "He tells two near-identical words apart even when they're said fast.",
+        "She catches the subtle shift between two almost-matching syllables.",
+        "He tells apart speech sounds that everyone else hears as the same.",
+        "She can hear the difference between the two accents' vowels straight away.",
+        "To him those two words sound completely different, though most people can't tell them apart.",
+        "She can pick up fine differences between spoken sounds with ease.",
+        "He just can't hear the difference between those two sounds, however hard he listens.",
+        "She tells apart sounds that are nearly identical to everyone else.",
+        "I have to really concentrate to tell those two sounds apart when someone's talking."
+      ]
+    },
+    "Ga-UR": {
+      "discriminator": "vs US — getting speech right despite noise/distortion; vs LS — hearing the signal, not comprehending meaning.",
+      "seeds": [
+        "She catches every word even when the line is crackling and breaking up.",
+        "With a lot of background chatter she can hear people fine but the words turn to mush.",
+        "She makes out the announcement even when the speakers garble it.",
+        "He follows what's said even through heavy background noise.",
+        "She catches what's said even when the sound is muffled and breaking up.",
+        "He understood the muddy, low-quality recording perfectly.",
+        "It's loud enough for him to hear, he just can't make out the words when there's a racket.",
+        "She follows the speaker even over the din of the whole crowd.",
+        "She can make out clear words even when the sound is badly distorted.",
+        "He hears speech correctly no matter how poor or muddy the sound."
+      ]
+    },
+    "Ga-U8": {
+      "discriminator": "vs UM — keeping/recognizing a beat (rhythm/timing); vs U1U9 — rhythm, not tonal judgment.",
+      "seeds": [
+        "She can clap along to any song and never once lose the beat.",
+        "He keeps perfect time, tapping his foot steadily through the whole track.",
+        "She feels exactly where the beat is and stays locked to it.",
+        "He can hold a steady beat without drifting, however fast the song.",
+        "She finds the beat and keeps it rock-steady.",
+        "He drums along in perfect time from the very first bar.",
+        "She never falls off the beat, even on the tricky rhythms.",
+        "He catches the pulse of the music and just keeps it going.",
+        "I've got no rhythm at all — I clap on the wrong beat and can't stay in time to save my life.",
+        "He keeps time flawlessly even when the rhythm gets tricky."
+      ]
+    },
+    "Ga-UM": {
+      "discriminator": "vs Wa (Gwm) — holding and reproducing a heard tonal/sound pattern; vs UP/U1U9 — memory, not pitch/judgment.",
+      "seeds": [
+        "She can hum back a tune she heard only once, note for note.",
+        "He remembers the exact rhythm of a clip after a single listen.",
+        "She holds a short run of notes in her head and repeats them straight back.",
+        "He can sing a melody back the moment after hearing it.",
+        "She holds the pattern of sounds in mind just long enough to play it back.",
+        "He remembers how the jingle went after hearing it the one time.",
+        "She keeps a short tune in mind right after hearing it and plays it back exactly.",
+        "He can hold onto a sound for a bit and reproduce it a moment later.",
+        "She can repeat back a rhythm she just heard, precisely, from memory.",
+        "He holds the tune in his head right after it plays and gets every note right."
+      ]
+    },
+    "Ga-U1U9": {
+      "discriminator": "vs UP — judging musical nuance (tuning, phrasing, harmony) relatively; vs US — music, not speech sounds.",
+      "prior_definition": "Ability to discriminate and judge tonal patterns in music with respect to melodic, harmonic, and expressive aspects (phrasing, tempo, harmonic complexity, intensity variations).",
+      "seeds": [
+        "She can tell when a single instrument is just slightly out of tune.",
+        "He can hear when a note in the song is off, even if he can't say why.",
+        "She judges the phrasing and timing of a recording with a fine ear.",
+        "He notices when a chord sounds wrong in a way most listeners never catch.",
+        "She can tell when a melody is played a little flat or sharp.",
+        "He can tell which version is played more musically, and say why.",
+        "She hears when the harmony is muddy or off in a way others don't register.",
+        "He can tell a well-shaped, musical performance from a clumsy one.",
+        "She hears when a melody is played with the wrong feel.",
+        "That song just sounds bad to him — out of tune, off, wrong — and he picks it out at once."
+      ]
+    },
+    "Ga-UP": {
+      "discriminator": "vs U1U9 — identifying absolute pitch with no reference; vs UM — naming pitch, not recalling a pattern.",
+      "prior_definition": "Ability to perfectly identify the pitch of tones.",
+      "seeds": [
+        "She can name any note the instant she hears it, with nothing to compare it against.",
+        "He hears a car horn and tells you the exact note it's sounding.",
+        "She names the exact pitch of any sound on the spot, no reference tone needed.",
+        "He notices straight away when a song he knows well is being played a touch too high.",
+        "She names the note of a ringing glass right away, cold.",
+        "He can tell you the pitch of any tone without an instrument to check against.",
+        "She's got perfect pitch — names notes by ear with no reference at all.",
+        "He hears a chord out of nowhere and names every note in it without a starting pitch.",
+        "She can pin down any pitch the moment it sounds, nothing to compare it to.",
+        "He names the note cold, every single time, with no reference."
+      ]
+    },
+    "Ga-UL": {
+      "discriminator": "pinpointing the direction/location of a sound in space.",
+      "prior_definition": "Ability to localize heard sounds in space.",
+      "seeds": [
+        "She can point straight to where a sound came from without even looking.",
+        "He knew at once which direction the noise was over, off to one side or behind.",
+        "She located the chirping cricket in the dark by ear alone.",
+        "He could tell the beeping was behind him before he turned around.",
+        "She places a sound in space — near or far, high or low — with uncanny accuracy.",
+        "He turned straight toward the source of the noise without hunting for it.",
+        "In a noisy crowd she can tell exactly who's talking and from which direction.",
+        "He pins down a sound's position the moment he hears it.",
+        "She can tell whether a sound is in front of her or behind with her eyes shut.",
+        "I can never tell which direction a sound is coming from — it could be anywhere."
+      ]
+    },
+    "Gs-P": {
+      "discriminator": "vs Pc/Ps — fast visual comparison/scanning of an extended field generally; vs N — visual, not numeric.",
+      "prior_definition": "An intermediate stratum ability reflecting the speed and fluency with which similarities or differences in visual stimuli (e.g., letters, numbers, patterns) can be searched and compared in an extended visual field.",
+      "seeds": [
+        "She scans the two columns and spots every difference between them almost instantly.",
+        "He flies through the matching task, telling same from different at top speed.",
+        "She checks the rows of numbers for the one that's off faster than anyone.",
+        "He spots which items match across the page in seconds.",
+        "She races through the spot-the-difference work quickly and accurately.",
+        "He compares the patterns and flags the odd ones out rapidly.",
+        "She zips through visual checks that bog everyone else down.",
+        "He whips through the spot-the-difference puzzle in no time.",
+        "She can scan a page of figures and pick out the one that doesn't match at a glance.",
+        "He proofreads at a glance, catching the odd typo almost instantly."
+      ]
+    },
+    "Gs-Ps": {
+      "discriminator": "vs Pc — quickly searching/scanning to locate simple targets; vs SS (Gv) — finding targets, not tracing a path.",
+      "seeds": [
+        "She scans a crowded page and her eyes jump straight to the one symbol she wants.",
+        "He scans the dense page and picks out every instance of the letter, fast.",
+        "She can pick the one match out of a cluttered field in an instant.",
+        "He spots all the little stars scattered across the busy page quickly.",
+        "Her eyes hunt down the one she wants in the visual jumble at top speed.",
+        "He scans fast and his eye lands on the right one right away.",
+        "She finds the specific shape hidden in the crowd of others, fast.",
+        "He scans the grid and picks out every match in no time.",
+        "She zips through the field and her eyes spot the ones she's after quickly.",
+        "It's like Where's Waldo — he scans the busy picture and finds it in seconds."
+      ]
+    },
+    "Gs-Pc": {
+      "discriminator": "vs Ps — quickly comparing two stimuli for match/difference; vs P — comparing, not searching.",
+      "seeds": [
+        "She sets the two codes side by side and tells you instantly whether they match.",
+        "He compares the original and the copy and catches the one altered digit fast.",
+        "She lines the two figures up and spots the difference in a flash.",
+        "He checks whether the two serial numbers match at a single glance.",
+        "She rapidly checks the paired entries for any mismatch.",
+        "He holds the two images up and instantly sees that they differ.",
+        "She tells whether two side-by-side things match quickly and reliably.",
+        "He matches the two long strings faster than you can read one.",
+        "She tells the matching pairs from the different ones at speed.",
+        "He compares two things side by side rapidly and never misses a difference."
+      ]
+    },
+    "Gs-N": {
+      "discriminator": "vs RQ (Gf) — speed/fluency of over-learned calculation, not reasoning; vs KM — doing fast, not knowing.",
+      "seeds": [
+        "He adds up the whole bill in his head before the waiter's set it down.",
+        "She rattles off the times tables faster than you'd believe.",
+        "He does quick arithmetic in his head without a single slip.",
+        "She totals a column of figures in her head almost instantly.",
+        "He works out the change owed in his head before the till does.",
+        "She crunches the numbers in her head at lightning speed.",
+        "He multiplies big numbers in his head in seconds.",
+        "She can add four two-digit numbers in her head in the time it takes most to find a pen.",
+        "He's fast and accurate at mental math, every time.",
+        "Tell me more than three numbers and my brain goes blank — I just can't do sums in my head."
+      ]
+    },
+    "Gt-R1": {
+      "discriminator": "vs R2 — instant reaction to a single signal, no choice involved.",
+      "prior_definition": "Reaction time to the presentation of a single visual or auditory stimulus.",
+      "seeds": [
+        "The light turns green and he's moving before anyone else has even twitched.",
+        "She's got lightning reflexes — the whistle blows and she's already gone.",
+        "The moment something pops up on screen, his hand flies to it.",
+        "Her reflexes are quicker than the eye can follow.",
+        "He caught the falling glass before it had dropped an inch.",
+        "His reaction time in games is unreal — he hits the button the instant it flashes.",
+        "The second the cue flashes, his hand's already there.",
+        "She's first off the line every time the gun goes.",
+        "His reflexes are so fast he flinched and caught it before he'd even thought.",
+        "The flash comes and she's moved before it's fully registered."
+      ]
+    },
+    "Gt-R2": {
+      "discriminator": "vs R1 — fast correct choice among multiple alternative signals; vs R4 — choice, not meaning.",
+      "prior_definition": "Reaction time to one of two or more alternative stimuli, depending on which alternative is signaled.",
+      "seeds": [
+        "In the game, whichever enemy pops up, he hits the right button instantly.",
+        "Different things come flying at her and she always picks the right move, fast.",
+        "He sees which way the obstacle is and dodges the right way in a blink.",
+        "Whatever pops up, she fires off the matching move straight away.",
+        "He sorts out the right move from several options without missing a beat.",
+        "When the situation keeps changing, she still picks the right move, and fast.",
+        "He reads which way to go and goes the right way at once.",
+        "Behind the wheel she reads what's happening and makes the right split-second move.",
+        "He picks the right move from among many almost instantly.",
+        "Whichever way it breaks, she does the right thing, and quick."
+      ]
+    },
+    "Gt-IT": {
+      "discriminator": "vs R7 — perceiving a difference from an extremely brief exposure (perception speed), not decision speed.",
+      "prior_definition": "The speed at which differences in stimuli can be perceived.",
+      "seeds": [
+        "Even when the two shapes flash by in an eyeblink, she can tell which was bigger.",
+        "He catches which one differed from a glimpse so short most people see nothing.",
+        "She needs only the briefest flash to make out which one was different.",
+        "He can tell which was which even when they're shown for a split second.",
+        "From the tiniest peek she perceives which one stood out.",
+        "He spots the odd one in images that barely appear before they're gone.",
+        "She makes out which differed from a flash quicker than the eye should allow.",
+        "Even at the shortest exposure he registers which was which.",
+        "She takes in the difference almost faster than it's possible to see.",
+        "I can see things in a flash that take everyone else much longer to register."
+      ]
+    },
+    "Gt-R4": {
+      "discriminator": "vs R2 — fast decision requiring encoding/understanding of content (true-false, category); vs R7 — meaning, not attribute compare.",
+      "prior_definition": "Reaction time when the decision requires some encoding and mental manipulation of stimulus content.",
+      "seeds": [
+        "He reads a claim and knows true or false almost before you've finished it.",
+        "She knows whether the thing fits the category in an instant.",
+        "Tell him a quick fact and he knows right off whether it's right or wrong.",
+        "She grasps whether a sentence makes sense and knows in a heartbeat.",
+        "He takes in the little problem's meaning and knows the answer at once.",
+        "She understands what's being asked the instant she reads it.",
+        "The meaning clicks for her before she's even finished reading it.",
+        "He takes in the sense of it and answers the quick question without delay.",
+        "She's instant on anything that needs you to grasp the meaning first.",
+        "He gets what it means and snaps back the answer right away."
+      ]
+    },
+    "Gt-R7": {
+      "discriminator": "vs R4 — fast single comparison of two stimuli on one attribute; vs Pc (Gs) — immediacy of one judgment, not sustained comparison.",
+      "prior_definition": "Reaction time where the stimuli must be compared for a particular attribute.",
+      "seeds": [
+        "Show her two numbers and she says which is bigger before you can blink.",
+        "He glances at two objects and instantly calls the heavier one.",
+        "She sizes up the pair and says which is the larger immediately.",
+        "He judges which line is longer the moment they appear.",
+        "She picks the larger of two at a glance, no hesitation.",
+        "He decides which one is nearer in a fraction of a second.",
+        "She tells which of the two is the heavier the instant they show.",
+        "He looks at the pair and says which is more, in a snap.",
+        "Which of the two is greater? She knows before you've finished asking.",
+        "He makes the quick which-is-bigger call faster than anyone."
+      ]
+    },
+    "Gps-R3": {
+      "discriminator": "vs MT — general limb speed, not move-to-a-point time.",
+      "prior_definition": "The speed of arm and leg movement.",
+      "seeds": [
+        "His hands are so quick in the drill they're almost a blur.",
+        "She's got fast feet — quicker than anyone else on the team.",
+        "He whips his hand through the motion at incredible speed.",
+        "She's lightning fast on her feet through the whole sequence.",
+        "His hands fairly fly through the routine.",
+        "She's so quick on her feet the rest of them can't follow.",
+        "He gets his hands through the moves at top speed.",
+        "She's got quick hands and fast feet, fast on the draw every time.",
+        "That kid is fast — way faster on his feet than any four-year-old I've seen.",
+        "He gets his hands and feet going faster than seems possible."
+      ]
+    },
+    "Gps-PT": {
+      "discriminator": "vs R3.",
+      "prior_definition": "Ability to rapidly perform successive articulations with the speech musculature.",
+      "seeds": [
+        "She can rattle off a tongue-twister at full speed without slurring a word.",
+        "He's a real motormouth — talks a mile a minute when he gets going.",
+        "She talks so fast the words almost run together.",
+        "He fires off his words in quick succession, crisp every time.",
+        "When she's off her meds she talks way too fast for anyone to follow.",
+        "He spits out the fast patter cleanly at top speed.",
+        "She motors through her words without a stumble, fast as an auctioneer.",
+        "He can talk at lightning pace and still come out clear.",
+        "She rattles it all off mile-a-minute, more than you can keep up with.",
+        "His mouth can barely keep up — his thoughts come faster than he can get them out."
+      ]
+    },
+    "Gps-MT": {
+      "discriminator": "vs R1 — time to complete the movement to a response point (the moving, not the reacting); vs R3 — to a target point.",
+      "prior_definition": "The time taken to physically move a body part (e.g., a finger) to make the required response. May also measure the speed of finger, limb, or multilimb movements or vocal articulation (diadochokinesis).",
+      "seeds": [
+        "Her finger covers the distance to the button in a flash.",
+        "He gets his hand from one spot to the next almost instantly.",
+        "She gets her finger to the target spot in record time.",
+        "He whisks his hand across to the button the moment he's decided.",
+        "Her hand reaches the next spot in a blink.",
+        "He gets his hand to the response point with no lag at all.",
+        "She closes the distance to the target faster than anyone.",
+        "He gets his hand there in the blink of an eye.",
+        "Her finger darts to the spot the instant it's needed.",
+        "He completes the reach to the button quicker than seems possible."
+      ]
+    },
+    "Gkn-K2": {
+      "discriminator": "vs K1 — the humanities (history, philosophy, religion, literature, music, art), not science; vs K0 (Gc) — specialized depth in the humanities, not the common facts everyone is expected to know.",
+      "seeds": [
+        "My knowledge of history is embarrassingly thin; I mix up which events came first.",
+        "I know almost nothing about art or literature, so those conversations go right over my head.",
+        "She knows the history of nearly every war, empire, and revolution in far more detail than school ever taught.",
+        "He has read so widely in literature and history that he can place almost any book or event in its era.",
+        "He picked up an enormous amount of history and literature on his own, far more than any class taught him.",
+        "She knows the history behind almost anything, far beyond what we ever covered in school.",
+        "I've barely read any classic literature; I don't recognize most of the authors people quote.",
+        "She knows art history so well she can name the artist of almost any famous painting.",
+        "Play her a few bars of almost any symphony and she'll tell you the composer and the period.",
+        "I wish I knew more about history and the arts; I can never follow the references people make to them."
+      ]
+    },
+    "Gr-LA": {
+      "discriminator": "vs NA — getting to any intended word quickly in speech or reading, not naming an object in view; vs FW — speed of reaching the word one means, not producing many words to a cue; vs VL (Gc) — retrieval speed, not knowing the word.",
+      "seeds": [
+        "I end up saying 'that thing' or 'whatchamacallit' because the actual word won't come.",
+        "I know exactly what I want to say, but the words come so slowly that people finish my sentences for me.",
+        "I know the word, I use it all the time, but in the middle of a sentence it just won't come to me.",
+        "I can't think of the word, even though I know it perfectly well and could define it.",
+        "When I'm speaking I constantly blank on simple words I definitely know.",
+        "My vocabulary is fine on paper, but when I'm speaking the words are slow to surface.",
+        "He answers in conversation so quickly it's like his vocabulary is wired straight to his mouth.",
+        "When she talks, the words she needs come to her instantly, without any search.",
+        "It takes me much longer than other people to come up with the word I'm looking for when I speak.",
+        "Mid-conversation I'll freeze because I can't think of a really basic word."
+      ]
+    }
+  }
+}

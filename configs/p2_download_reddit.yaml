@@ -1,0 +1,71 @@
+output_dir: data/raw/corpus/track_a/reddit
+
+# The 54 subreddits indexed for the Reddit folk corpus (names as in the torrent; matching is
+# case-insensitive, no "r/" prefix). Selected for community type: clinical and identity
+# self-report and skill-practice communities carry the highest ability-descriptor rates.
+subreddits:
+  # ── Clinical and identity self-report ──
+  - ADHD
+  - autism
+  - AutisticAdults
+  - Dyslexia
+  - dyscalculia
+  - Gifted
+  - cognitiveTesting
+  - Aphantasia
+  - deaf
+  - hardofhearing
+  - Cochlearimplants
+  # ── Skill practice ──
+  - chess
+  - math
+  - learnmath
+  - puzzles
+  - crossword
+  - etymology
+  - languagelearning
+  - asl
+  - writing
+  - Handwriting
+  - Calligraphy
+  - typing
+  - drawing
+  - learnart
+  - SketchDaily
+  - musictheory
+  - piano
+  - singing
+  - woodworking
+  - aimlab
+  - osugame
+  - geoguessr
+  - Anki
+  - LSAT
+  - GRE
+  - learnprogramming
+  # ── Education and practitioners ──
+  - education
+  - homeschool
+  - Parenting
+  - slp
+  - specialeducation
+  - Teachers
+  # ── Cognitive science and general discussion ──
+  - psychology
+  - neuroscience
+  - cogsci
+  - linguistics
+  - Nootropics
+  - slatestarcodex
+  - productivity
+  - worldbuilding
+  - ArtificialInteligence
+  - MapPorn
+  - tipofmytongue
+
+# Which file types to download: comments | submissions | both
+file_types: comments
+
+# Torrent info hash (top 40k subreddits, 2005–2025). The torrent file is committed as data/raw/reddit.torrent
+# because its Academic Torrents listing is gone; data/raw/reddit_dump_manifest.json lists the files used.
+torrent_hash: 3e3f64dee22dc304cdd2546254ca1f8e8ae542b4

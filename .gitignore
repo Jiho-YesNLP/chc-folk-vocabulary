@@ -1,0 +1,94 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# uv
+# uv.lock is intentionally committed for reproducibility
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Environment
+.env
+*.env.local
+
+# Data (managed via DVC)
+data/**
+!data/**/
+!data/**/*.dvc
+!data/**/.gitkeep
+!data/raw/**/*.json
+# cache: p2_download_reddit_subreddits.py rebuilds it from the torrent
+data/raw/reddit_filelist.json
+!data/raw/detectability/rubric_detectability_v3_FROZEN.txt
+!data/raw/detectability/README.md
+!data/raw/reddit.torrent
+!data/raw/annotation/*.md
+
+# Results (experiment outputs)
+results/**
+!results/**/.gitkeep
+
+# Scratch (throwaway experiments)
+scratch/**
+!scratch/.gitkeep
+
+# Manuscripts (Overleaf-synced — each is its own git repo)
+manuscripts/**
+!manuscripts/.gitkeep
+
+# Literature (large PDFs — track via DVC if needed)
+literature/**
+!literature/.gitkeep
+!literature/**/
+!literature/**/*.dvc
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+/logs/
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# AI Agents
+CLAUDE.md
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
+
+# OSF config
+.osfcli.config
+
+# Trained model weights (1GB+, distributed out-of-band)
+/models/
+

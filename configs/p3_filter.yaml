@@ -1,0 +1,36 @@
+# Stage 3 — apply the seed-conditioned ability-descriptor classifier to the full
+# per-ability candidate pool. Needs a CUDA GPU (torch cu124).
+#
+#   uv run python scripts/p3_filter_passages.py configs/p3_filter.yaml [--overwrite] [--debug] [--ability Gr-FA]
+
+output_dir: data/processed/corpus/track_a_v10 # {uid}_filtered.jsonl, {uid}_scored.jsonl, coverage_report.json, filter_run_meta.json
+raw_dir: data/processed/retrieval/track_a          # {uid}_raw.jsonl from p2_retrieve_passages.py
+inventory_path: data/raw/chc_taxonomy.json   # + sibling chc_project_annotations.json
+
+model_path:   # three-way checkpoints (off_topic/incidental/folk_description), probabilities averaged
+  - models/relevance_classifier_v10/s42   # soft labels (Opus 5.5 + gpt-6-astra, v2), 5-seed anchors, batch 16
+  - models/relevance_classifier_v10/s43
+  - models/relevance_classifier_v10/s44
+classifier_version: relevance_classifier_v10_ens3  # stamped onto every retained record
+
+# candidate pool: same selection as p3_annotate.py (max-hybrid per passage -> text dedup
+# -> technical-label pre-filter -> rank by hybrid -> top N)
+pool_top: 1000
+
+# anchor = ability name + n_seeds seeds, joined by the tokenizer's [SEP] — identical to
+# training. seed_subsets>1 averages the descriptor probability over that many random seed draws
+# to damp anchor-sampling variance; both are deterministic given `seed`.
+# n_seeds must match the training anchors (p3_build_soft_dataset.py --n-seeds 5): scoring
+# with 3 seeds against a 5-seed model cost recall for retrained models.
+n_seeds: 5
+seed_subsets: 4
+seed: 42
+
+# decision: a passage is retained (folk_description) iff prob_cad >= threshold.
+# prob_cad is stored for EVERY scored candidate in {uid}_scored.jsonl, so the
+# threshold can be re-tuned later with no GPU re-run.
+threshold: 0.55                                    # F1-max on the current random set, both v2 raters pooled, 5 seeds x 4, 3-model average
+
+max_len: 256
+batch_size: 64
+device: cuda

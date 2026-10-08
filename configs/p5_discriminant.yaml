@@ -1,0 +1,23 @@
+# Stage 5 — linguistic discriminant validity on the joint vectors (llm:claude-opus-5.5 extraction).
+#
+#   uv run python scripts/p5_discriminant.py configs/p5_discriminant.yaml
+#
+# Same point set and neighbor graph as configs/p5_cluster_viz.yaml
+# (single-ability strata dropped, same-passage neighbors excluded, same exclusions, same k).
+
+extraction_annotator: llm:claude-opus-5.5   # informational: the Stage 4 run all _opus55 paths below come from
+joint_vectors_path: data/processed/clusters/track_a_opus55/joint_vectors.npz
+inventory_path: data/raw/chc_taxonomy.json   # + sibling chc_project_annotations.json
+judgments_dir: data/processed/annotation/track_a/random/judgments
+raters: [opus-5.5-in-conversation@v2.jsonl, llm-gpt-6-astra@v2.jsonl]   # rater line of evidence
+out_dir: results/discriminant_opus55
+
+knn_k: 10
+min_n: 11                    # k + 1: below this an ability cannot fill its own neighborhood
+n_permutations: 10000        # label-shuffle null over points, neighbor graph fixed
+fdr_alpha: 0.05              # Benjamini-Hochberg across all eligible pairs
+random_seed: 17
+
+# Cross-listed abilities are resolved to one parent in the taxonomy (RS, WS -> Grw; P -> Gs),
+# so no ability is excluded as a duplicate.
+exclude_abilities: []

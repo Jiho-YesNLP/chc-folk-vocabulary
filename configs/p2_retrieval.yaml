@@ -1,0 +1,24 @@
+index_dir: data/processed/index/track_a/
+seed_dir: data/raw/seeds/track_a/
+inventory_path: data/raw/chc_taxonomy.json   # + sibling chc_project_annotations.json
+output_dir: data/processed/retrieval/track_a/
+
+encoder_model: BAAI/bge-m3
+device: cuda
+
+top_k: 100           # candidates retrieved per seed per index
+max_per_ability: 10000   # cap the pooled raw hits per ability (top hybrid_score kept); null = keep all
+# Debiasing (below) shifts the cosine scale downward, so a fixed cutoff tuned on raw
+# cosines rejects nearly everything. 0.0 keeps the full top_k pool; the script prints the
+# dense-score distribution (p50/p90/p99) per ability to calibrate against if a cutoff is wanted.
+similarity_threshold: 0.0    # minimum dense score for initial filter (recalibrate per run)
+alpha: 0.3           # hybrid weight: score = (1-alpha)*dense + alpha*sparse
+
+batch_size: 32
+
+# Query debiasing — All-but-the-Top (Mu & Viswanath 2018, https://arxiv.org/abs/1702.01417).
+# Removes the common "she/he person-narrative" direction shared by all seeds, which
+# otherwise inflates similarity to any person-narrative passage. Fit on the pooled
+# seeds across all abilities, projected out of each query before search.
+background_subtraction: true   # subtract the pooled-seed mean from every query
+remove_top_pcs: 2              # also project out the top-k principal components (0 = off)

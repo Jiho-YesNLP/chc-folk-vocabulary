@@ -1,0 +1,338 @@
+[
+ {
+  "id": "item_000",
+  "definition": "Ability to recognize previously encountered distinctive odors."
+ },
+ {
+  "id": "item_001",
+  "definition": "The ability to manipulate the spotlight of attention flexibly to focus on task-relevant stimuli and ignore task-irrelevant stimuli. Sometimes referred to as spotlight or focal attention, focus, control of attention, executive controlled attention, or executive attention."
+ },
+ {
+  "id": "item_002",
+  "definition": "The speed at which written words can be copied."
+ },
+ {
+  "id": "item_003",
+  "definition": "Knowledge or sensitivity to nonverbal human communication/interaction systems (e.g., facial expressions and gestures)."
+ },
+ {
+  "id": "item_004",
+  "definition": "The ability to rapidly draw or sketch as many things (or elaborations) as possible when presented with a nonmeaningful visual stimulus (e.g., a set of unique visual elements)."
+ },
+ {
+  "id": "item_005",
+  "definition": "Ability to precisely and skillfully coordinate arm-hand positioning in space."
+ },
+ {
+  "id": "item_006",
+  "definition": "Knowledge about the function, terminology, and operation of ordinary tools, machines, and equipment."
+ },
+ {
+  "id": "item_007",
+  "definition": "The ability to rapidly think of different ways of expressing an idea."
+ },
+ {
+  "id": "item_008",
+  "definition": "The ability to form a link between two previously unrelated stimuli such that the subsequent presentation of one of the stimuli serves to activate the recall of the other stimuli."
+ },
+ {
+  "id": "item_009",
+  "definition": "The ability to rapidly produce words that share a phonological (e.g., fluency of retrieval of words via a phonological cue) or semantic feature (e.g., fluency of retrieval of words via a meaning-based representation)."
+ },
+ {
+  "id": "item_010",
+  "definition": "The ability to understand speech. Starts with comprehending single words and increases to long complex verbal statements."
+ },
+ {
+  "id": "item_011",
+  "definition": "The ability to quickly and accurately survey (visually explore) a wide or complicated spatial field or pattern with multiple obstacles and identify a target configuration or identify a path through the field to a target end point."
+ },
+ {
+  "id": "item_012",
+  "definition": "An intermediate stratum ability reflecting the general understanding of spoken language at the level of words, idioms, and sentences. The ability to comprehend and communicate using language."
+ },
+ {
+  "id": "item_013",
+  "definition": "Ability to make quick specific or discrete motor movements of the arms or legs."
+ },
+ {
+  "id": "item_014",
+  "definition": "The ability to rapidly call objects by their names."
+ },
+ {
+  "id": "item_015",
+  "definition": "Knowledge of finger-spelling and signing (e.g., American Sign Language)."
+ },
+ {
+  "id": "item_016",
+  "definition": "Consistency in the rate of alternating between different visual perceptions."
+ },
+ {
+  "id": "item_017",
+  "definition": "The ability to remember narratives and other forms of semantically related information."
+ },
+ {
+  "id": "item_018",
+  "definition": "The ability to rapidly produce a series of ideas, words, or phrases related to a specific condition or object. Quantity, not quality, is emphasized."
+ },
+ {
+  "id": "item_019",
+  "definition": "Time required to silently read a passage or series of sentences as quickly as possible."
+ },
+ {
+  "id": "item_020",
+  "definition": "Reaction time to one of two or more alternative stimuli, depending on which alternative is signaled."
+ },
+ {
+  "id": "item_021",
+  "definition": "The ability to distinctly hear phonemes, blend sounds into words, and segment words into parts, sounds, or phonemes. Also referred to as phonological processing, phonological awareness, and phonemic awareness."
+ },
+ {
+  "id": "item_022",
+  "definition": "Range of scientific knowledge (e.g., biology, physics, engineering, mechanics, electronics)."
+ },
+ {
+  "id": "item_023",
+  "definition": "Reaction time where the stimuli must be compared for a particular attribute."
+ },
+ {
+  "id": "item_024",
+  "definition": "Ability to exert precise control over muscle movements, typically in response to environmental feedback (e.g., changes in speed or position of object being manipulated)."
+ },
+ {
+  "id": "item_025",
+  "definition": "The ability to retain (on a short-term basis) auditory codes such as tones, tonal patterns, or speech sounds."
+ },
+ {
+  "id": "item_026",
+  "definition": "Range of general knowledge about mathematics."
+ },
+ {
+  "id": "item_027",
+  "definition": "The ability to reason logically using known premises and principles."
+ },
+ {
+  "id": "item_028",
+  "definition": "Ability to quickly combine disconnected, vague, or partially obscured visual stimuli or patterns into a meaningful whole, without knowing in advance what the pattern is."
+ },
+ {
+  "id": "item_029",
+  "definition": "The speed and fluency of generating or copying words or sentences. Also listed under Grw and Gps."
+ },
+ {
+  "id": "item_030",
+  "definition": "The ability to encode and maintain verbal information in primary memory."
+ },
+ {
+  "id": "item_031",
+  "definition": "The speed of arm and leg movement."
+ },
+ {
+  "id": "item_032",
+  "definition": "The speed, fluency, and accuracy in manipulating numbers, comparing number patterns, or completing basic arithmetic."
+ },
+ {
+  "id": "item_033",
+  "definition": "The ability to rapidly think of a number of solutions to a particular practical problem."
+ },
+ {
+  "id": "item_034",
+  "definition": "The ability to voluntarily mentally produce very vivid images of objects, people, or events that are not actually present."
+ },
+ {
+  "id": "item_035",
+  "definition": "Reaction time to the presentation of a single visual or auditory stimulus."
+ },
+ {
+  "id": "item_036",
+  "definition": "The ability to perceive complex visual patterns and mentally simulate how they might look when transformed (e.g., rotated, changed in size, partially obscured, and so forth)."
+ },
+ {
+  "id": "item_037",
+  "definition": "The speed and fluency of looking up and comparing visual stimuli that are side-by-side or more widely separated in an extended visual field."
+ },
+ {
+  "id": "item_038",
+  "definition": "The ability to detect and discriminate differences in speech sounds (other than phonemes) under conditions of little or no distraction or distortion."
+ },
+ {
+  "id": "item_039",
+  "definition": "The ability to recognize and maintain a musical beat."
+ },
+ {
+  "id": "item_040",
+  "definition": "The speed and fluency of searching or scanning an extended visual field to locate one or more simple visual patterns."
+ },
+ {
+  "id": "item_041",
+  "definition": "Knowledge of writing in the English language with respect to capitalization, punctuation, usage, and spelling."
+ },
+ {
+  "id": "item_042",
+  "definition": "The breadth and depth of knowledge that one's culture deems essential, practical, and worthwhile for everyone to know."
+ },
+ {
+  "id": "item_043",
+  "definition": "Ability to recall as many unrelated items as possible, in any order, after a large collection of items is presented."
+ },
+ {
+  "id": "item_044",
+  "definition": "Ability to discriminate and judge tonal patterns in music with respect to melodic, harmonic, and expressive aspects (phrasing, tempo, harmonic complexity, intensity variations)."
+ },
+ {
+  "id": "item_045",
+  "definition": "The ability to copy or generate text quickly."
+ },
+ {
+  "id": "item_046",
+  "definition": "Ability to resist being affected by this capacity involving geometric figures."
+ },
+ {
+  "id": "item_047",
+  "definition": "Ability to maintain the body in an upright position in space or regain balance after balance has been disturbed."
+ },
+ {
+  "id": "item_048",
+  "definition": "Ability to comprehend connected discourse during reading."
+ },
+ {
+  "id": "item_049",
+  "definition": "The ability to hear words or extended speech passages correctly under conditions of distortion or background noise."
+ },
+ {
+  "id": "item_050",
+  "definition": "Ability to make precisely coordinated movements of the fingers (with or without the manipulation of objects)."
+ },
+ {
+  "id": "item_051",
+  "definition": "Competence in the ability to understand communication from others by watching the movements of their mouths and expressions."
+ },
+ {
+  "id": "item_052",
+  "definition": "Ability to speak in real-life situations (e.g., lecture, group participation) in an adult-like manner."
+ },
+ {
+  "id": "item_053",
+  "definition": "Ability to precisely and fluently execute a sequence of eye-hand coordination movements for positioning purposes."
+ },
+ {
+  "id": "item_054",
+  "definition": "Ability to perfectly identify the pitch of tones."
+ },
+ {
+  "id": "item_055",
+  "definition": "Range of geographic knowledge."
+ },
+ {
+  "id": "item_056",
+  "definition": "The ability to solve problems quickly by using mental rotation of simple images."
+ },
+ {
+  "id": "item_057",
+  "definition": "The ability to encode and maintain visual information in primary memory."
+ },
+ {
+  "id": "item_058",
+  "definition": "Ability to write with clarity of thought, organization, and good sentence structure. (Not clearly defined by existing research.)"
+ },
+ {
+  "id": "item_059",
+  "definition": "Ability to apprehend and identify a pictorial or visual pattern when parts of the pattern are presented rapidly in serial or successive order."
+ },
+ {
+  "id": "item_060",
+  "definition": "Ability to find, apprehend, and identify a visual figure or pattern embedded in a complex visual array, when knowing in advance what the pattern is."
+ },
+ {
+  "id": "item_061",
+  "definition": "Knowledge or awareness of the grammatical features of the native language."
+ },
+ {
+  "id": "item_062",
+  "definition": "Ability to rapidly perform successive articulations with the speech musculature."
+ },
+ {
+  "id": "item_063",
+  "definition": "The ability to rapidly produce a series of original or useful ideas related to a particular concept."
+ },
+ {
+  "id": "item_064",
+  "definition": "Ability to make precisely coordinated movements of a hand or a hand and the attached arm."
+ },
+ {
+  "id": "item_065",
+  "definition": "Ability to rapidly produce original, clever, and insightful responses (expressions, interpretations) to a given topic, situation, or task."
+ },
+ {
+  "id": "item_066",
+  "definition": "Ability to exert muscular force to move (push, lift, pull) a relatively heavy or immobile object."
+ },
+ {
+  "id": "item_067",
+  "definition": "Similar to Language Development (LD) but for a foreign language."
+ },
+ {
+  "id": "item_068",
+  "definition": "The ability to reason with quantities, mathematical relations, and operators."
+ },
+ {
+  "id": "item_069",
+  "definition": "The knowledge of the definitions of words and the concepts that underlie them. Vocabulary knowledge."
+ },
+ {
+  "id": "item_070",
+  "definition": "The ability to observe a phenomenon and discover the underlying principles or rules that determine its behavior."
+ },
+ {
+  "id": "item_071",
+  "definition": "The speed at which differences in stimuli can be perceived."
+ },
+ {
+  "id": "item_072",
+  "definition": "The ability to remember complex visual images over short periods of time (less than 30 seconds)."
+ },
+ {
+  "id": "item_073",
+  "definition": "An intermediate stratum ability reflecting the speed and fluency with which similarities or differences in visual stimuli (e.g., letters, numbers, patterns) can be searched and compared in an extended visual field."
+ },
+ {
+  "id": "item_074",
+  "definition": "Measured mathematics achievement."
+ },
+ {
+  "id": "item_075",
+  "definition": "The speed and fluency of reading text with full comprehension. Also listed under Grw."
+ },
+ {
+  "id": "item_076",
+  "definition": "Reaction time when the decision requires some encoding and mental manipulation of stimulus content."
+ },
+ {
+  "id": "item_077",
+  "definition": "The ability to rapidly draw different solutions to figural problems."
+ },
+ {
+  "id": "item_078",
+  "definition": "More specific or narrow oral communication skills than reflected by Communication Ability (CM)."
+ },
+ {
+  "id": "item_079",
+  "definition": "The time taken to physically move a body part (e.g., a finger) to make the required response. May also measure the speed of finger, limb, or multilimb movements or vocal articulation (diadochokinesis)."
+ },
+ {
+  "id": "item_080",
+  "definition": "Ability to localize heard sounds in space."
+ },
+ {
+  "id": "item_081",
+  "definition": "Ability to spell. (Not clearly defined by existing research.)"
+ },
+ {
+  "id": "item_082",
+  "definition": "Ability to recognize and decode words or pseudowords in reading."
+ },
+ {
+  "id": "item_083",
+  "definition": "Ability to accurately estimate or compare visual lengths and distances without using measurement instruments."
+ }
+]

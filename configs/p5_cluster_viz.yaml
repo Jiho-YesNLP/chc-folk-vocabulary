@@ -1,0 +1,26 @@
+# Stage 5 — clustering & cohesion metrics on source-conditioned joint vectors.
+# CPU/local: consumes joint_vectors.npz from p5_embed_joint.py (method 2 — no prototype
+# blend). This is the MEASURED path for the RQ2 recovery test and discriminant-validity work.
+#
+#   uv run python scripts/p5_cluster_viz.py configs/p5_cluster_viz.yaml
+
+mode: joint
+extraction_annotator: llm:claude-opus-5.5   # informational: the Stage 4 run all _opus55 paths below come from
+joint_vectors_path: data/processed/clusters/track_a_opus55/joint_vectors.npz
+out_dir: results/track_a_cluster_joint_opus55
+
+# balanced-metric variant: cap members per ability so high-coverage abilities don't
+# dominate density / neighbor metrics (raw variant is always reported too).
+max_members_per_ability: 30
+
+knn_k: 10                  # neighbors for purity (same-uid / same-broad fractions)
+figure_dpi: 300
+projection: umap           # umap | tsne | pca  (auto-falls back if umap missing)
+umap_min_dist: 0.1
+umap_n_neighbors: 40
+scatter_ellipse_std: 2.0
+drop_singleton_broad: true # exclude broad strata with one ability (e.g. Gq) from cohesion metrics
+random_seed: 17
+# Cross-listed abilities are resolved to one parent in the taxonomy (RS, WS -> Grw; P -> Gs),
+# so no ability is excluded as a duplicate.
+exclude_abilities: []
