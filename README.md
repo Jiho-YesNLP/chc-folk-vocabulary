@@ -50,7 +50,7 @@ uv run python scripts/p2_retrieve_passages.py configs/p2_retrieval.yaml --all
 
 The released resources let you skip the expensive stages:
 
-- **Relevance classifier** (the three averaged checkpoints used to filter the corpus) on Hugging Face: lets you skip classifier training in Stage 3. *Link added on release.*
+- **Relevance classifier** (the three averaged checkpoints used to filter the corpus): [`YesNLP/chc-folk-relevance-classifier`](https://huggingface.co/YesNLP/chc-folk-relevance-classifier) on Hugging Face. `hf download YesNLP/chc-folk-relevance-classifier --local-dir models/relevance_classifier_v10` puts it where `configs/p3_filter.yaml` expects it, so you can skip classifier training in Stage 3.
 - **Labeled corpus and fingerprint database** on Zenodo, with the WJ IV task descriptions and their citations: lets you start the analyses at Stage 5 without downloading Reddit or running the GPU stages. *DOI added on release.*
 
 The Reddit dumps themselves are not redistributed. `data/raw/reddit.torrent` identifies the exact dump (the Academic Torrents listing it came from is no longer online), and `data/raw/reddit_dump_manifest.json` lists the 54 comment files used, with their torrent indices, byte sizes and comment counts. Everything else needed to rebuild the resources from scratch is in this repository: the inventory and seeds (`data/raw/`), the annotation and extraction instruments (`data/raw/annotation/`, `docs/`), and the configs.

@@ -111,7 +111,9 @@ uv run python scripts/p3_build_soft_dataset.py --set ranked \
     --annotators opus-5.5-in-conversation@v2 llm-gpt-6-astra@v2 --n-seeds 5 --fp-ratio 2 \
     --out-dir data/processed/datasets/track_a/folk_classifier_v10_soft
 
-# (GPU) Three seeds, deployed as an average (configs/p3_filter.yaml lists all three)
+# (GPU) Three seeds, deployed as an average (configs/p3_filter.yaml lists all three).
+# To skip training, download the released checkpoints instead (Hugging Face: YesNLP/chc-folk-relevance-classifier):
+#   hf download YesNLP/chc-folk-relevance-classifier --local-dir models/relevance_classifier_v10
 for s in 42 43 44; do
   uv run python scripts/p3_train_classifier.py --epochs 8 --freeze-layers 3 --soft-labels --seed $s \
       --data-dir data/processed/datasets/track_a/folk_classifier_v10_soft \
