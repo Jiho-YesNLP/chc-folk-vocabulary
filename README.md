@@ -48,10 +48,10 @@ uv run python scripts/p2_retrieve_passages.py configs/p2_retrieval.yaml --all
 
 ## Data and models
 
-The released resources let you skip the expensive stages:
+The recommended way to reproduce the results is to run the whole pipeline from the source Reddit dumps (see below). The released resources are:
 
 - **Relevance classifier** (the three averaged checkpoints used to filter the corpus): [`YesNLP/chc-folk-relevance-classifier`](https://huggingface.co/YesNLP/chc-folk-relevance-classifier) on Hugging Face. `hf download YesNLP/chc-folk-relevance-classifier --local-dir models/relevance_classifier_v10` puts it where `configs/p3_filter.yaml` expects it, so you can skip classifier training in Stage 3.
-- **Labeled corpus and fingerprint database** on Zenodo, with the WJ IV task descriptions and their citations: lets you start the analyses at Stage 5 without downloading Reddit or running the GPU stages. *DOI added on release.*
+- **Labeled corpus and fingerprint database**, with the WJ IV task descriptions and their citations: [doi:10.5281/zenodo.23252569](https://doi.org/10.5281/zenodo.23252569) on Zenodo (CC BY 4.0). The verbatim Reddit passage texts are in a companion record, available on request for non-commercial research: [doi:10.5281/zenodo.23252571](https://doi.org/10.5281/zenodo.23252571). These records are the artifacts of the run reported in the paper, released for inspection and reuse. They are not laid out as inputs to the pipeline: feeding them into a later stage is possible but takes manual rearrangement, and is not the recommended route.
 
 The Reddit dumps themselves are not redistributed. `data/raw/reddit.torrent` identifies the exact dump (the Academic Torrents listing it came from is no longer online), and `data/raw/reddit_dump_manifest.json` lists the 54 comment files used, with their torrent indices, byte sizes and comment counts. Everything else needed to rebuild the resources from scratch is in this repository: the inventory and seeds (`data/raw/`), the annotation and extraction instruments (`data/raw/annotation/`, `docs/`), and the configs.
 
